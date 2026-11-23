@@ -22,10 +22,20 @@ A cell counts the tokens of the raw file text for that model. Message-based coun
 
 ## Constraints
 
-- Python project managed with uv. `uv sync` must set up everything.
+- Python, managed with uv, with one virtual environment per model family instead of a single project env. `./devenv.sh` creates `.venv-<family>/` for each family (openai, anthropic, google, glm, kimi, deepseek, mistral) and installs that family's pinned requirements. More granular envs are used if a family turns out to need them. The base `.venv` runs the orchestrator.
+- Each env's dependencies are pinned in `requirements/<family>.txt`, generated with `uv pip compile` and committed, so the setup is reproducible.
 - Secrets live in `.env` and never enter git. `.env.example` is committed with empty values.
 - Counting is free on every provider used: OpenAI input token count, Anthropic count_tokens, Google countTokens, Z.ai tokenizer, Kimi estimate-token-count.
 - Local strategies need no key, so a partial run works offline.
+
+## Environments and dispatch
+
+`devenv.sh` at the repo root does the following.
+
+1. Create the base env: `uv venv .venv` and install `requirements/base.txt` (httpx and python-dotenv, pinned).
+2. For each model family, create `.venv-<family>` and install `requirements/<family>.txt`. A family env adds only its own library: tiktoken for openai, tokenizers for deepseek and mistral. The API-only families (anthropic, google, glm, kimi) add no extra library.
+
+Run: `PYTHONPATH=src .venv/bin/python -m tokencount`. The orchestrator (base env) loads `.env`, downloads missing corpus files, and then runs one subprocess per family: `.venv-<family>/bin/python -m tokencount --family <family>` with `PYTHONPATH=src`. The subprocess counts every corpus file for that family's models and appends rows to `results/results.csv`. After all families finish, the orchestrator renders `results/table.md` from the CSV. Tests use stdlib unittest and run in the env that has the needed library: `.venv/bin/python -m unittest tests.test_table` and `.venv-openai/bin/python -m unittest tests.test_counters`.
 
 ## Approaches considered
 
@@ -90,33 +100,33 @@ Decision recorded from the owner (2026-11-23): fetch live at run time, accepting
 
 ## Pipeline
 
-`uv run python -m tokencount` does the following.
+`PYTHONPATH=src .venv/bin/python -m tokencount` does the following (see Environments and dispatch).
 
 1. Load `.env` with python-dotenv.
 2. Read the model registry, download any missing corpus URLs into `samples/`, and read the sample files.
-3. For each file and model pair, count tokens with the model strategy. Append one row per pair to `results/results.csv` with columns: timestamp, provider, model, strategy, file, file_type, sha256, chars, tokens, note. The dedup key is (model, strategy, file path, sha256 of the file content). A pair whose key is already present in the CSV is skipped, so reruns are incremental and an edited file is recounted. `--fresh` ignores the CSV and recounts everything.
+3. For each family, run the family env subprocess, which counts each file and model pair with the model strategy. Append one row per pair to `results/results.csv` with columns: timestamp, provider, model, strategy, file, file_type, sha256, chars, tokens, note. The dedup key is (model, strategy, file path, sha256 of the file content). A pair whose key is already present in the CSV is skipped, so reruns are incremental and an edited file is recounted. `--fresh` ignores the CSV and recounts everything.
 4. Pivot the CSV into a Markdown table (rows: model, columns: file type plus Total) and write it to `results/table.md`. Print the same table to stdout. The Total column sums the numeric cells of a row.
 
 Failure handling: a failed count writes the row with an empty tokens value and a note, and the run continues. The note says `error: <message>` for a failed call, `n/a` for a model the endpoint does not support (for example glm-5.4 before Z.ai publishes its API), and `missing key <ENV>` when the strategy's API key is absent. The table renders the cell as `error`, `n/a`, or `key`.
 
 ## Project layout
 
-- `pyproject.toml`, `.python-version`, `uv.lock` (uv)
-- `.env.example`, `.gitignore` (`.env`, `.venv`, `__pycache__`, `samples/`)
-- `src/tokencount/__main__.py` (CLI entry)
+- `devenv.sh` (creates the base env and one `.venv-<family>` per model family)
+- `.python-version`, `requirements/base.txt`, `requirements/<family>.txt` (pinned with `uv pip compile`, committed)
+- `.env.example`, `.gitignore` (`.env`, `.venv*`, `__pycache__`, `samples/`)
+- `src/tokencount/__main__.py` (CLI entry: orchestrator, or `--family <family>` worker)
 - `src/tokencount/corpus.py` (fixed URL list: file type, file name, URL)
-- `src/tokencount/models.py` (registry: provider, model id, strategy, key env var, vendored tokenizer file)
-- `src/tokencount/counters.py` (one function per strategy, plus the baseline subtraction)
-- `src/tokencount/run.py` (loop over files and models, CSV logging)
-- `src/tokencount/table.py` (pivot and Markdown render)
+- `src/tokencount/models.py` (registry: provider, model id, family, strategy, key env var, vendored tokenizer file)
+- `src/tokencount/counters.py` (one function per strategy, plus the baseline subtraction; runs inside the family env)
+- `src/tokencount/run.py` (orchestrator: fetch corpus, dispatch family subprocesses, CSV append; worker: count one family)
+- `src/tokencount/table.py` (pivot and Markdown render, stdlib only)
 - `tokenizers/<provider>-<model>.json` (vendored tokenizer files, committed, so local counts work offline and stay reproducible)
 - `scripts/fetch_tokenizers.py` (downloads the vendored files from Hugging Face; run once when the registry changes)
-- `samples/<type>/...`
-- `tests/test_counters.py` (known vector for a local tokenizer, using the vendored files), `tests/test_table.py` (pivot from a small in-memory CSV)
+- `tests/test_counters.py` (known vector for a local tokenizer, run in `.venv-openai`), `tests/test_table.py` (pivot from a small in-memory CSV, run in `.venv`)
 - `README.md` (setup and usage)
 - `results/results.csv`, `results/table.md` (generated and committed)
 
-Dependencies: httpx, python-dotenv, tiktoken, tokenizers. No provider SDKs and no huggingface-hub at run time. All endpoints are plain REST and the fetch script uses plain HTTPS.
+Dependencies per env: base and the API families need httpx and python-dotenv only; openai adds tiktoken; deepseek and mistral add tokenizers. No provider SDKs and no huggingface-hub at run time. All endpoints are plain REST and the fetch script uses plain HTTPS.
 
 ## Builder check decisions (author's calls, 2026-11-23)
 
@@ -124,6 +134,7 @@ Dependencies: httpx, python-dotenv, tiktoken, tokenizers. No provider SDKs and n
 - Baseline subtraction applies to message-based endpoints; each endpoint's wrapper is verified at build time. Call of the author.
 - Tokenizer files are vendored and committed, not downloaded at run time. Call of the author.
 - `error`, `n/a` and `missing key` are three note states rendered as `error`, `n/a`, `key`; Total sums numeric cells only. Call of the author.
+- One env per model family via `devenv.sh` with pinned per-family requirements, for reproducibility. Decision of the owner (2026-11-23).
 
 ## What is left to the builder
 
@@ -137,3 +148,4 @@ Dependencies: httpx, python-dotenv, tiktoken, tokenizers. No provider SDKs and n
 - glm-5.4 may be uncountable until Z.ai publishes its API. The cell then shows n/a.
 - Provider model ids change over time. The registry is data, so updates are one-line edits.
 - Counting endpoints can change shape. Each strategy is one small function, so fixes stay local.
+- Fetched corpus pages change over time, so historical CSV rows and the current table can drift apart. The sha256 key keeps recounts correct; it does not freeze the past.
