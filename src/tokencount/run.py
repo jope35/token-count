@@ -3,6 +3,7 @@ import csv
 import os
 import shutil
 import subprocess
+from subprocess import TimeoutExpired
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from functools import partial
@@ -252,9 +253,11 @@ def main(argv=None) -> int:
         for proc in procs:
             try:
                 proc.wait(timeout=5)
-            except subprocess.TimeoutExpired:
+            except TimeoutExpired:
                 proc.kill()
                 proc.wait()
+            except KeyboardInterrupt:
+                pass  # a second Ctrl-C while reaping must not escape the handler
         return 1  # no aggregation, no render; results/results.csv untouched
     for family in local_families:
         cmd = [

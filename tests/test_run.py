@@ -327,64 +327,168 @@ class TestAggregateResults(unittest.TestCase):
 
 
 class TestOrchestrator(unittest.TestCase):
-    def test_dispatches_one_subprocess_per_family(self):
-        with (
-            mock.patch.object(run, "resolve_secrets", return_value=ALL_SECRETS),
-            mock.patch.object(run, "load_entries", return_value=[]),
-            mock.patch.object(run, "fetch_corpus", fake_corpus),
-            mock.patch.object(run, "subprocess") as sp,
-            mock.patch.object(run, "render_results") as rr,
-        ):
-            sp.run.return_value = subprocess.CompletedProcess(
-                args=[], returncode=0
-            )  # ruling R1: bare MagicMock returncode is not 0
-            rc = run.main([])
+    def _run_main(self, argv=None, popen_rcs=(0,) * 5, run_rcs=(0,) * 2):
+        calls = []
+        popens = []
+        runs = []
+
+        def fake_popen(cmd, env=None):
+            p = mock.Mock()
+            p.wait.return_value = popen_rcs[len(popens)]
+            p.poll.return_value = 0
+            popens.append((p, cmd, env))
+            return p
+
+        def fake_run(cmd, env=None, check=False):
+            runs.append((cmd, env))
+            return subprocess.CompletedProcess(args=cmd, returncode=run_rcs[len(runs) - 1])
+
+        with tempfile.TemporaryDirectory() as d:
+            cwd = os.getcwd()
+            os.chdir(d)
+            try:
+                with (
+                    mock.patch.object(run, "resolve_secrets", return_value=ALL_SECRETS),
+                    mock.patch.object(run, "load_entries", return_value=[]),
+                    mock.patch.object(run, "fetch_corpus", fake_corpus),
+                    mock.patch.object(run, "subprocess") as sp,
+                    mock.patch.object(run, "aggregate_results",
+                                      side_effect=lambda *a, **k: calls.append("aggregate")) as agg,
+                    mock.patch.object(run, "render_results",
+                                      side_effect=lambda: calls.append("render")) as rr,
+                ):
+                    sp.Popen.side_effect = fake_popen
+                    sp.run.side_effect = fake_run
+                    rc = run.main(argv or [])
+            finally:
+                os.chdir(cwd)
+        return rc, popens, runs, calls, agg, rr
+
+    def test_popen_five_api_and_run_two_local(self):
+        rc, popens, runs, calls, agg, rr = self._run_main()
         self.assertEqual(rc, 0)
-        self.assertEqual(sp.run.call_count, 7)
-        families = []
-        for call in sp.run.call_args_list:
-            cmd = call.args[0]
-            env = call.kwargs["env"]
+        self.assertEqual(len(popens), 5)
+        self.assertEqual(len(runs), 2)
+        api_families, positions, pending = set(), set(), []
+        for p, cmd, env in popens:
             self.assertEqual(cmd[:3], [".venv/bin/python", "-m", "tokencount"])
-            self.assertIn("--family", cmd)
             family = cmd[cmd.index("--family") + 1]
-            families.append(family)
-            expected = (
-                {"PYTHONPATH"}
-                if family in LOCAL_FAMILIES
-                else {"PYTHONPATH", FAMILY_KEY[family]}
-            )
+            api_families.add(family)
+            positions.add(cmd[cmd.index("--bar-position") + 1])
+            self.assertEqual(cmd[cmd.index("--results-csv") + 1],
+                             f"results/pending/{family}.csv")
+            pending.append(f"results/pending/{family}.csv")
+            expected = {"PYTHONPATH", FAMILY_KEY[family]}
             self.assertEqual(set(env), expected)
-        self.assertEqual(
-            sorted(families), sorted(list(FAMILY_KEY) + list(LOCAL_FAMILIES))
-        )
+        self.assertEqual(api_families, set(FAMILY_KEY))
+        self.assertEqual(positions, {"0", "1", "2", "3", "4"})  # distinct bar positions
+        local_families = set()
+        for cmd, env in runs:
+            family = cmd[cmd.index("--family") + 1]
+            local_families.add(family)
+            self.assertEqual(cmd[cmd.index("--bar-position") + 1], "0")
+            self.assertEqual(cmd[cmd.index("--results-csv") + 1],
+                             f"results/pending/{family}.csv")
+            pending.append(f"results/pending/{family}.csv")
+            self.assertEqual(set(env), {"PYTHONPATH"})  # local: no key
+        self.assertEqual(local_families, LOCAL_FAMILIES)
+        self.assertEqual(len(set(pending)), 7)  # every worker its own file
+        self.assertEqual(calls, ["aggregate", "render"])  # aggregate once, before render
+        agg.assert_called_once()
         rr.assert_called_once_with()
 
-    def test_fresh_flag_propagates_to_workers_and_fetch(self):
+    def test_failed_worker_makes_main_nonzero_but_still_aggregates_and_renders(self):
+        rcs = [0, 1, 0, 0, 0]
+        rc, popens, runs, calls, agg, rr = self._run_main(popen_rcs=tuple(rcs))
+        self.assertEqual(rc, 1)
+        self.assertEqual(calls, ["aggregate", "render"])
+
+    def test_fresh_flag_propagates_to_all_workers_and_fetch(self):
         with (
             mock.patch.object(run, "resolve_secrets", return_value={}),
             mock.patch.object(run, "load_entries", return_value=[]),
             mock.patch.object(run, "fetch_corpus", return_value=[SAMPLE]) as fc,
             mock.patch.object(run, "subprocess") as sp,
+            mock.patch.object(run, "aggregate_results"),
             mock.patch.object(run, "render_results"),
         ):
-            run.main(["--fresh"])
-        for call in sp.run.call_args_list:
+            sp.Popen.return_value = mock.Mock(wait=mock.Mock(return_value=0), poll=mock.Mock(return_value=0))
+            sp.run.return_value = subprocess.CompletedProcess(args=[], returncode=0)
+            with tempfile.TemporaryDirectory() as d:
+                cwd = os.getcwd()
+                os.chdir(d)
+                try:
+                    run.main(["--fresh"])
+                finally:
+                    os.chdir(cwd)
+        for call in sp.Popen.call_args_list + sp.run.call_args_list:
             self.assertIn("--fresh", call.args[0])
         self.assertEqual(fc.call_args.kwargs.get("fresh"), True)
 
-    def test_failed_worker_makes_main_nonzero_but_still_renders(self):
-        with (
-            mock.patch.object(run, "resolve_secrets", return_value={}),
-            mock.patch.object(run, "load_entries", return_value=[]),
-            mock.patch.object(run, "fetch_corpus", fake_corpus),
-            mock.patch.object(run, "subprocess") as sp,
-            mock.patch.object(run, "render_results") as rr,
-        ):
-            sp.run.return_value = subprocess.CompletedProcess(args=[], returncode=1)
-            rc = run.main([])
-        self.assertEqual(rc, 1)
-        rr.assert_called_once_with()
+    def test_main_clears_pending_dir_at_start(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "results", "pending"))
+            stale = os.path.join(d, "results", "pending", "stale.csv")
+            with open(stale, "w") as f:
+                f.write("stale\n")
+            cwd = os.getcwd()
+            os.chdir(d)
+            try:
+                with (
+                    mock.patch.object(run, "resolve_secrets", return_value={}),
+                    mock.patch.object(run, "load_entries", return_value=[]),
+                    mock.patch.object(run, "fetch_corpus", fake_corpus),
+                    mock.patch.object(run, "subprocess") as sp,
+                    mock.patch.object(run, "aggregate_results") as agg,  # only the start-wipe may remove it
+                    mock.patch.object(run, "render_results"),
+                ):
+                    sp.Popen.return_value = mock.Mock(wait=mock.Mock(return_value=0), poll=mock.Mock(return_value=0))
+                    sp.run.return_value = subprocess.CompletedProcess(args=[], returncode=0)
+                    rc = run.main([])
+            finally:
+                os.chdir(cwd)
+        self.assertEqual(rc, 0)
+        self.assertFalse(os.path.exists(stale))
+
+    def test_keyboard_interrupt_terminates_children_and_touches_nothing(self):
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, "results"))
+            csv_path = os.path.join(d, "results", "results.csv")
+            with open(csv_path, "w") as f:
+                f.write("original\n")
+            before = open(csv_path, "rb").read()
+            procs = []
+
+            def fake_popen(cmd, env=None):
+                p = mock.Mock()
+                p.poll.return_value = None  # still running
+                p.wait.side_effect = KeyboardInterrupt
+                procs.append(p)
+                return p
+
+            cwd = os.getcwd()
+            os.chdir(d)
+            try:
+                with (
+                    mock.patch.object(run, "resolve_secrets", return_value={}),
+                    mock.patch.object(run, "load_entries", return_value=[]),
+                    mock.patch.object(run, "fetch_corpus", fake_corpus),
+                    mock.patch.object(run, "subprocess") as sp,
+                    mock.patch.object(run, "aggregate_results") as agg,
+                    mock.patch.object(run, "render_results") as rr,
+                ):
+                    sp.Popen.side_effect = fake_popen
+                    rc = run.main([])
+                after = open(csv_path, "rb").read()
+            finally:
+                os.chdir(cwd)
+        self.assertEqual(len(procs), 5)
+        for p in procs:
+            p.terminate.assert_called_once_with()
+        agg.assert_not_called()
+        rr.assert_not_called()
+        self.assertNotEqual(rc, 0)
+        self.assertEqual(after, before)  # results.csv untouched
 
 
 class TestSecretsGuard(unittest.TestCase):
