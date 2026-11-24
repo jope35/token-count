@@ -1,4 +1,5 @@
 import json
+import os
 import unittest
 
 import httpx
@@ -120,3 +121,78 @@ class TestApiStrategies(CounterTestCase):
     def test_hf_local_rejected(self):
         with self.assertRaises(ValueError):
             counters.count_tokens("hf_local", "m", "x")
+
+
+class LiveTestCase(unittest.TestCase):
+    def setUp(self):
+        counters.TRANSPORT = None
+        counters._BASELINE_CACHE.clear()
+
+
+def live_key(strategy):
+    return os.environ.get(counters.STRATEGY_KEY_ENV[strategy])
+
+
+@unittest.skipUnless(live_key("openai_api"), "needs OPENAI_API_KEY")
+class TestLiveOpenAI(LiveTestCase):
+    def test_input_tokens_matches_tiktoken_vector(self):
+        import tiktoken
+        text = "The quick brown fox jumps over the lazy dog"
+        expected = len(tiktoken.get_encoding("o200k_base").encode(text))
+        got = counters.count_tokens("openai_api", "gpt-6.2-astra", text, key=live_key("openai_api"))
+        self.assertEqual(got, expected)
+
+    def test_single_char_counts_as_one_token(self):
+        # A string input is a user-role message, so this also pins that the
+        # input_tokens wrapper for openai_api is zero (baseline 0). If this
+        # fails by a constant, switch openai_api to a probed baseline.
+        got = counters.count_tokens("openai_api", "gpt-6.2-astra", "x", key=live_key("openai_api"))
+        self.assertEqual(got, 1)
+
+
+@unittest.skipUnless(live_key("anthropic_api"), "needs ANTHROPIC_API_KEY")
+class TestLiveAnthropic(LiveTestCase):
+    def test_anthropic_version_2026_10_21_accepted(self):
+        n = counters.count_tokens("anthropic_api", "claude-sonnet-5-5", "hello world",
+                                  key=live_key("anthropic_api"))
+        self.assertGreater(n, 0)
+
+
+@unittest.skipUnless(live_key("google_api"), "needs GOOGLE_API_KEY")
+class TestLiveGoogle(LiveTestCase):
+    def test_count_tokens_query_key_works_and_wrapper_is_zero(self):
+        key = live_key("google_api")
+        self.assertGreater(counters.count_tokens("google_api", "gemini-4-neon", "hello world", key=key), 0)
+        self.assertLessEqual(counters.count_tokens("google_api", "gemini-4-neon", "a", key=key), 2)
+
+
+@unittest.skipUnless(live_key("zai_api"), "needs Z_AI_API_KEY")
+class TestLiveZai(LiveTestCase):
+    def test_tokenizer_endpoint_counts(self):
+        n = counters.count_tokens("zai_api", "glm-5.3", "hello world", key=live_key("zai_api"))
+        self.assertGreater(n, 0)
+
+
+@unittest.skipUnless(live_key("kimi_api"), "needs MOONSHOT_API_KEY")
+class TestLiveKimi(LiveTestCase):
+    def test_moonshot_route_counts(self):
+        n = counters.count_tokens("kimi_api", "kimi-k3", "hello world", key=live_key("kimi_api"))
+        self.assertGreater(n, 0)
+
+
+class TestLiveWrapperConstancy(LiveTestCase):
+    def test_message_based_wrapper_constant_across_sizes(self):
+        for strategy, model in [("anthropic_api", "claude-sonnet-5-5"),
+                                ("zai_api", "glm-5.3"),
+                                ("kimi_api", "kimi-k3")]:
+            key = live_key(strategy)
+            if not key:
+                continue
+            with self.subTest(strategy=strategy):
+                c1 = counters.count_tokens(strategy, model, "a", key=key)
+                c2 = counters.count_tokens(strategy, model, "ab", key=key)
+                c3 = counters.count_tokens(strategy, model, "abc", key=key)
+                self.assertGreater(c2 - c1, 0)
+                self.assertEqual(c2 - c1, c3 - c2)
+                # pins the probe-minus-1 baseline: one character is one token
+                self.assertEqual(counters.count_tokens(strategy, model, "x", key=key), 1)
