@@ -129,7 +129,13 @@ def count_tokens(
     tokenizer_file: str | None = None,
 ) -> int:
     if strategy == "hf_local":
-        raise ValueError("hf_local is not supported in this task")
+        if tokenizer_file is None:
+            raise ValueError("hf_local requires tokenizer_file")
+        from tokenizers import Tokenizer
+
+        tok = Tokenizer.from_file(tokenizer_file)
+        # add_special_tokens=False: no post-processor wrapper, no baseline
+        return len(tok.encode(text, add_special_tokens=False).ids)
 
     if key is None:
         raise MissingKeyError(STRATEGY_KEY_ENV[strategy])

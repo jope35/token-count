@@ -6,6 +6,29 @@ import httpx
 
 from tokencount import counters
 
+try:
+    from tokenizers import Tokenizer
+
+    HAS_TOKENIZERS = True
+except ImportError:
+    HAS_TOKENIZERS = False
+
+try:
+    import tiktoken
+
+    HAS_TIKTOKEN = True
+except ImportError:
+    HAS_TIKTOKEN = False
+
+KNOWN_STRING = "The quick brown fox jumps over the lazy dog. 0123456789"
+EXPECTED_HF_LOCAL = {
+    "tokenizers/deepseek-flash.json": 15,
+    "tokenizers/deepseek-v4-pro.json": 15,
+    "tokenizers/mistral-large-4.json": 15,
+    "tokenizers/mistral-small-2603.json": 21,
+    "tokenizers/mistral-medium-3-5.json": 21,
+}
+
 
 def use_mock(handler):
     counters.TRANSPORT = httpx.MockTransport(handler)
@@ -157,9 +180,56 @@ class TestApiStrategies(CounterTestCase):
         self.assertEqual(counters.baseline_tokens("openai_api", "m", "k"), 0)
         self.assertEqual(counters.baseline_tokens("google_api", "m", "k"), 0)
 
-    def test_hf_local_rejected(self):
+    def test_hf_local_requires_tokenizer_file(self):
         with self.assertRaises(ValueError):
             counters.count_tokens("hf_local", "m", "x")
+
+
+@unittest.skipUnless(HAS_TOKENIZERS, "needs tokenizers")
+class TestHfLocal(unittest.TestCase):
+    def test_hf_local_known_vectors(self):
+        for path, expected in EXPECTED_HF_LOCAL.items():
+            with self.subTest(path=path):
+                self.assertEqual(
+                    counters.count_tokens(
+                        "hf_local", "x", KNOWN_STRING, tokenizer_file=path
+                    ),
+                    expected,
+                )
+
+    def test_hf_local_no_baseline(self):
+        for path in EXPECTED_HF_LOCAL:
+            with self.subTest(path=path):
+                direct = len(
+                    Tokenizer.from_file(path).encode(
+                        KNOWN_STRING, add_special_tokens=False
+                    ).ids
+                )
+                self.assertEqual(
+                    counters.count_tokens(
+                        "hf_local", "x", KNOWN_STRING, tokenizer_file=path
+                    ),
+                    direct,
+                )
+
+    def test_hf_local_no_special_tokens(self):
+        for path in EXPECTED_HF_LOCAL:
+            with self.subTest(path=path):
+                tok = Tokenizer.from_file(path)
+                raw = len(tok.encode(KNOWN_STRING, add_special_tokens=False).ids)
+                wrapped = len(tok.encode(KNOWN_STRING).ids)
+                self.assertLessEqual(raw, wrapped)
+                # current files use a ByteLevel post-processor that adds no
+                # specials; a future TemplateProcessing file must fail visibly
+                self.assertEqual(raw, wrapped)
+
+
+@unittest.skipUnless(HAS_TIKTOKEN, "needs tiktoken")
+class TestTiktokenCrossCheck(unittest.TestCase):
+    def test_openai_encoding_vector(self):
+        # same encoding name as the openai_api counter's live test
+        expected = len(tiktoken.get_encoding("o200k_base").encode(KNOWN_STRING))
+        self.assertEqual(expected, 15)
 
 
 class LiveTestCase(unittest.TestCase):
