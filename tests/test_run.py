@@ -36,7 +36,7 @@ FAMILY_KEY = {
     "glm": "Z_AI_API_KEY",
     "kimi": "MOONSHOT_API_KEY",
 }
-LOCAL_FAMILIES = {"deepseek", "mistral"}
+LOCAL_FAMILIES = {"deepseek", "mistral", "glm_local"}
 ALL_SECRETS = {k: k.lower() for k in FAMILY_KEY.values()}
 
 
@@ -265,7 +265,7 @@ class TestSplitFamilies(unittest.TestCase):
         families = sorted({m.family for m in run.REGISTRY})
         api, local = run.split_families(families)
         self.assertEqual(set(api), {"openai", "anthropic", "google", "glm", "kimi"})
-        self.assertEqual(set(local), {"deepseek", "mistral"})
+        self.assertEqual(set(local), {"deepseek", "mistral", "glm_local"})
 
 
 class TestAggregateResults(unittest.TestCase):
@@ -327,7 +327,7 @@ class TestAggregateResults(unittest.TestCase):
 
 
 class TestOrchestrator(unittest.TestCase):
-    def _run_main(self, argv=None, popen_rcs=(0,) * 5, run_rcs=(0,) * 2):
+    def _run_main(self, argv=None, popen_rcs=(0,) * 5, run_rcs=(0,) * 3):
         calls = []
         popens = []
         runs = []
@@ -364,11 +364,11 @@ class TestOrchestrator(unittest.TestCase):
                 os.chdir(cwd)
         return rc, popens, runs, calls, agg, rr
 
-    def test_popen_five_api_and_run_two_local(self):
+    def test_popen_five_api_and_run_three_local(self):
         rc, popens, runs, calls, agg, rr = self._run_main()
         self.assertEqual(rc, 0)
         self.assertEqual(len(popens), 5)
-        self.assertEqual(len(runs), 2)
+        self.assertEqual(len(runs), 3)
         api_families, positions, pending = set(), set(), []
         for p, cmd, env in popens:
             self.assertEqual(cmd[:3], [".venv/bin/python", "-m", "tokencount"])
@@ -392,7 +392,7 @@ class TestOrchestrator(unittest.TestCase):
             pending.append(f"results/pending/{family}.csv")
             self.assertEqual(set(env), {"PYTHONPATH"})  # local: no key
         self.assertEqual(local_families, LOCAL_FAMILIES)
-        self.assertEqual(len(set(pending)), 7)  # every worker its own file
+        self.assertEqual(len(set(pending)), 8)  # every worker its own file
         self.assertEqual(calls, ["aggregate", "render"])  # aggregate once, before render
         agg.assert_called_once()
         rr.assert_called_once_with()
@@ -537,7 +537,7 @@ class TestOfflinePartialRun(unittest.TestCase):
                 self.assertEqual(rc, 0)
                 with open(csv_path, newline="") as f:
                     rows = list(csv.DictReader(f))
-                self.assertEqual(len(rows), 3)
+                self.assertEqual(len(rows), 1)
                 for r in rows:
                     self.assertEqual(r["tokens"], "")
                     self.assertEqual(r["note"], "missing key Z_AI_API_KEY")

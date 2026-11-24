@@ -319,262 +319,6 @@ timestamp,provider,model,strategy,file,file_type,sha256,chars,tokens,note
 2026-11-24T14:01:31.561538+00:00,mistral,mistral-medium-3-5,hf_local,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,676,
 2026-11-24T14:01:32.575729+00:00,mistral,mistral-medium-3-5,hf_local,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,587,
 2026-11-24T14:01:33.572729+00:00,mistral,mistral-medium-3-5,hf_local,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,4538,
-2026-11-24T14:28:43.377477+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:43.536546+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:43.698369+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:43.830526+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:43.997883+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:44.164238+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:44.328328+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:44.489634+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:44.649567+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:44.820789+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:44.996730+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:45.162703+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:45.333745+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:45.509976+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:45.693248+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:45.829700+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:45.971461+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:46.114872+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:46.283022+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:46.455662+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:46.629870+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:46.808736+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:46.970847+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:47.155729+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:47.324412+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:47.486855+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:47.641050+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:47.809567+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:47.978863+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:48.146319+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:48.312440+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:48.489860+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:48.657288+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:48.825385+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:49.002786+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:49.158889+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:49.314918+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:49.472794+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:49.647851+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:49.821650+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:49.963775+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:50.140636+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:50.300210+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:50.454198+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:50.611966+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:50.759859+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:50.926097+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:51.077766+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:51.247039+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:51.405933+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:51.551024+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:51.713416+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:51.877626+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:52.028901+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:52.200838+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:52.362710+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:52.533777+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:52.713394+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:52.868420+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:53.040579+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:53.206904+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:53.381433+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:53.550990+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:53.724044+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:53.896485+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:54.065008+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:54.223696+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:54.383705+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:54.542757+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:54.712434+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:54.877900+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:55.028332+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:55.177630+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:55.335923+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:55.504536+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:55.664629+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:55.840650+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:55.980546+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:56.148834+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:56.304103+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:56.463850+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:56.633174+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:56.824562+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:56.983480+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:57.154395+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:57.327230+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:57.498306+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:57.654261+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:57.828393+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:57.982522+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:58.149331+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:58.315851+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:58.467441+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:58.630555+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:58.782297+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:58.945632+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:59.108550+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:59.260995+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:59.418041+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:59.576499+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:59.747803+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:28:59.920955+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:00.082323+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:00.233102+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:00.394213+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:00.557182+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:00.694548+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:00.841305+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:00.972864+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:01.125416+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:01.292296+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:01.440885+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:01.588181+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:01.775237+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:01.912008+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:02.052278+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:02.209228+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:02.375577+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:02.550230+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:02.720278+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:02.888431+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:03.062472+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:03.233071+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:03.407951+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:03.570340+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:03.739816+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:03.913403+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:29:04.051848+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
 2026-11-24T14:29:07.361786+00:00,deepseek,deepseek-flash,hf_local,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,410081,
 2026-11-24T14:29:09.378994+00:00,deepseek,deepseek-flash,hf_local,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,532479,
 2026-11-24T14:29:11.629094+00:00,deepseek,deepseek-flash,hf_local,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,698919,
@@ -671,70 +415,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-11-24T14:32:16.538190+00:00,glm,glm-5.4,zai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: RetryError[<Future at 0x7597c82b5050 state=finished raised HTTPStatusError>]
 2026-11-24T14:32:19.124409+00:00,glm,glm-5.4,zai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: RetryError[<Future at 0x7597c82b6050 state=finished raised HTTPStatusError>]
 2026-11-24T14:32:21.734758+00:00,glm,glm-5.4,zai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,error: RetryError[<Future at 0x7597c82b7050 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:24.276508+00:00,glm,glm-5.3,zai_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,error: RetryError[<Future at 0x7597c82b7850 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:26.838056+00:00,glm,glm-5.3,zai_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,error: RetryError[<Future at 0x7597c80e50d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:29.413229+00:00,glm,glm-5.3,zai_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,error: RetryError[<Future at 0x7597c80e60d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:32.208591+00:00,glm,glm-5.3,zai_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,error: RetryError[<Future at 0x7597c80e70d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:34.778602+00:00,glm,glm-5.3,zai_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,error: RetryError[<Future at 0x7597c80e78d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:37.339825+00:00,glm,glm-5.3,zai_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,error: RetryError[<Future at 0x7597c8115150 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:39.879183+00:00,glm,glm-5.3,zai_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,error: RetryError[<Future at 0x7597c8116150 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:42.424611+00:00,glm,glm-5.3,zai_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,error: RetryError[<Future at 0x7597c8117150 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:45.026274+00:00,glm,glm-5.3,zai_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,error: RetryError[<Future at 0x7597c8117950 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:47.611685+00:00,glm,glm-5.3,zai_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,error: RetryError[<Future at 0x7597c81491d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:50.165535+00:00,glm,glm-5.3,zai_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,error: RetryError[<Future at 0x7597c814a1d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:52.762357+00:00,glm,glm-5.3,zai_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,error: RetryError[<Future at 0x7597c814b1d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:55.348336+00:00,glm,glm-5.3,zai_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,error: RetryError[<Future at 0x7597c814b9d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:32:57.896768+00:00,glm,glm-5.3,zai_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,error: RetryError[<Future at 0x7597c8179250 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:00.487428+00:00,glm,glm-5.3,zai_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,error: RetryError[<Future at 0x7597c817a250 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:03.240846+00:00,glm,glm-5.3,zai_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,error: RetryError[<Future at 0x7597c817b250 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:05.795742+00:00,glm,glm-5.3,zai_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,error: RetryError[<Future at 0x7597c817ba50 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:08.351704+00:00,glm,glm-5.3,zai_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,error: RetryError[<Future at 0x7597c81a92d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:10.895588+00:00,glm,glm-5.3,zai_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,error: RetryError[<Future at 0x7597c81aa2d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:13.483672+00:00,glm,glm-5.3,zai_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,error: RetryError[<Future at 0x7597c81ab2d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:16.038021+00:00,glm,glm-5.3,zai_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,error: RetryError[<Future at 0x7597c81abad0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:18.621846+00:00,glm,glm-5.3,zai_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,error: RetryError[<Future at 0x7597c7ab9350 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:21.188070+00:00,glm,glm-5.3,zai_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,error: RetryError[<Future at 0x7597c7aba350 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:23.784853+00:00,glm,glm-5.3,zai_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,error: RetryError[<Future at 0x7597c7abb350 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:26.342500+00:00,glm,glm-5.3,zai_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,error: RetryError[<Future at 0x7597c7abbb50 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:28.888471+00:00,glm,glm-5.3,zai_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,error: RetryError[<Future at 0x7597c7af13d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:31.439041+00:00,glm,glm-5.3,zai_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,error: RetryError[<Future at 0x7597c7af23d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:34.163853+00:00,glm,glm-5.3,zai_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,error: RetryError[<Future at 0x7597c7af33d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:36.722696+00:00,glm,glm-5.3,zai_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,error: RetryError[<Future at 0x7597c7af3bd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:39.276400+00:00,glm,glm-5.3,zai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: RetryError[<Future at 0x7597c7b1d450 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:41.856965+00:00,glm,glm-5.3,zai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: RetryError[<Future at 0x7597c7b1e450 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:44.439543+00:00,glm,glm-5.3,zai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,error: RetryError[<Future at 0x7597c7b1f450 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:46.969886+00:00,glm,glm-5.3-flash,zai_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,error: RetryError[<Future at 0x7597c7b1fc50 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:49.539482+00:00,glm,glm-5.3-flash,zai_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,error: RetryError[<Future at 0x7597c7b414d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:52.072279+00:00,glm,glm-5.3-flash,zai_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,error: RetryError[<Future at 0x7597c7b424d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:54.634149+00:00,glm,glm-5.3-flash,zai_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,error: RetryError[<Future at 0x7597c7b434d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:57.181254+00:00,glm,glm-5.3-flash,zai_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,error: RetryError[<Future at 0x7597c7b43cd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:33:59.737644+00:00,glm,glm-5.3-flash,zai_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,error: RetryError[<Future at 0x7597c7b75550 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:02.275499+00:00,glm,glm-5.3-flash,zai_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,error: RetryError[<Future at 0x7597c7b76550 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:04.827993+00:00,glm,glm-5.3-flash,zai_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,error: RetryError[<Future at 0x7597c7b77550 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:07.358944+00:00,glm,glm-5.3-flash,zai_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,error: RetryError[<Future at 0x7597c7b77d50 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:09.894841+00:00,glm,glm-5.3-flash,zai_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,error: RetryError[<Future at 0x7597c79ad5d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:12.436559+00:00,glm,glm-5.3-flash,zai_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,error: RetryError[<Future at 0x7597c79ae5d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:15.156486+00:00,glm,glm-5.3-flash,zai_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,error: RetryError[<Future at 0x7597c79af5d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:17.701724+00:00,glm,glm-5.3-flash,zai_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,error: RetryError[<Future at 0x7597c79afdd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:20.271540+00:00,glm,glm-5.3-flash,zai_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,error: RetryError[<Future at 0x7597c79e1650 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:22.862513+00:00,glm,glm-5.3-flash,zai_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,error: RetryError[<Future at 0x7597c79e2650 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:25.432011+00:00,glm,glm-5.3-flash,zai_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,error: RetryError[<Future at 0x7597c79e3650 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:27.998614+00:00,glm,glm-5.3-flash,zai_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,error: RetryError[<Future at 0x7597c79e3e50 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:30.564206+00:00,glm,glm-5.3-flash,zai_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,error: RetryError[<Future at 0x7597c7a056d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:33.103013+00:00,glm,glm-5.3-flash,zai_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,error: RetryError[<Future at 0x7597c7a066d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:35.683368+00:00,glm,glm-5.3-flash,zai_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,error: RetryError[<Future at 0x7597c7a076d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:38.225742+00:00,glm,glm-5.3-flash,zai_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,error: RetryError[<Future at 0x7597c7a07ed0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:40.806627+00:00,glm,glm-5.3-flash,zai_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,error: RetryError[<Future at 0x7597c7a35750 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:43.368565+00:00,glm,glm-5.3-flash,zai_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,error: RetryError[<Future at 0x7597c7a36750 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:45.921766+00:00,glm,glm-5.3-flash,zai_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,error: RetryError[<Future at 0x7597c7a37750 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:48.495580+00:00,glm,glm-5.3-flash,zai_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,error: RetryError[<Future at 0x7597c7a37f50 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:51.051996+00:00,glm,glm-5.3-flash,zai_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,error: RetryError[<Future at 0x7597c7a5d7d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:53.623455+00:00,glm,glm-5.3-flash,zai_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,error: RetryError[<Future at 0x7597c7a5e7d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:56.405561+00:00,glm,glm-5.3-flash,zai_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,error: RetryError[<Future at 0x7597c7a5f7d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:34:58.973773+00:00,glm,glm-5.3-flash,zai_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,error: RetryError[<Future at 0x7597c7a8c850 state=finished raised HTTPStatusError>]
-2026-11-24T14:35:01.510325+00:00,glm,glm-5.3-flash,zai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: RetryError[<Future at 0x7597c7a8d850 state=finished raised HTTPStatusError>]
-2026-11-24T14:35:04.053221+00:00,glm,glm-5.3-flash,zai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: RetryError[<Future at 0x7597c7a8e850 state=finished raised HTTPStatusError>]
-2026-11-24T14:35:06.634716+00:00,glm,glm-5.3-flash,zai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,error: RetryError[<Future at 0x7597c7a8f850 state=finished raised HTTPStatusError>]
 2026-11-24T14:35:35.176808+00:00,kimi,kimi-k3.1-pro,kimi_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,error: RetryError[<Future at 0x72e9482220d0 state=finished raised HTTPStatusError>]
 2026-11-24T14:35:37.841779+00:00,kimi,kimi-k3.1-pro,kimi_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,error: RetryError[<Future at 0x72e9482357f0 state=finished raised HTTPStatusError>]
 2026-11-24T14:35:40.499738+00:00,kimi,kimi-k3.1-pro,kimi_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,error: RetryError[<Future at 0x72e94825de50 state=finished raised HTTPStatusError>]
@@ -1085,262 +765,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-11-24T14:48:14.042417+00:00,openai,gpt-6.1-luna,openai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: The read operation timed out
 2026-11-24T14:48:19.105259+00:00,openai,gpt-6.1-luna,openai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: The read operation timed out
 2026-11-24T14:48:24.159060+00:00,openai,gpt-6.1-luna,openai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,error: The read operation timed out
-2026-11-24T14:53:10.620457+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:10.750212+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:10.893093+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:11.053700+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:11.215673+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:11.371514+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:11.545708+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:11.736483+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:11.913034+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:12.081398+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:12.226435+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:12.375895+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:12.527263+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:12.691794+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:12.878804+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:13.055639+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:13.207893+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:13.386828+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:13.542697+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:13.704737+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:13.853064+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:14.018479+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:14.176018+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:14.328560+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:14.498614+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:14.672625+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:14.866562+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:15.035364+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:15.213522+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:15.381517+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:15.542490+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:15.712102+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:15.861336+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:16.020535+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:16.192364+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:16.376318+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:16.518705+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:16.684370+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:16.895665+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:17.099776+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:17.234887+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:17.419887+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:17.590567+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:17.748458+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:17.921834+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:18.104058+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:18.271544+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:18.442364+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:18.598072+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:18.779740+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:18.946424+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:19.128406+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:19.266763+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:19.442865+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:19.610626+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:19.778048+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:19.960659+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:20.145195+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:20.309510+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:20.477057+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:20.637786+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:20.818923+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:21.009902+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:21.165445+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:21.297469+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:21.453943+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:21.609330+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:21.784869+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:21.964043+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:22.131647+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:22.307083+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:22.460530+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:22.667704+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:22.851708+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:23.003528+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:23.189889+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:23.336829+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:23.509733+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:23.679670+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:23.848003+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:24.006610+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:24.165960+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:24.322051+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:24.483394+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:24.651289+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:24.825720+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:24.998321+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:25.173804+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:25.334915+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:25.529641+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:25.715491+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:25.898997+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:26.066774+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:26.241020+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:26.406469+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:26.577473+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:26.750549+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:26.908582+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:27.079158+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:27.251621+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:27.405610+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:27.574712+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:27.726228+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:27.906197+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:28.085093+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:28.257161+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:28.433219+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:28.605710+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:28.769325+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:28.940735+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:29.108686+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:29.275905+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:29.427243+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:29.596998+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:29.781311+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:29.970524+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:30.141107+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:30.315499+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:30.479245+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:30.642285+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:30.782203+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:30.937498+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:31.097506+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:31.262587+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:31.399086+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:31.561269+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:31.715368+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
-2026-11-24T14:53:31.862558+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,"error: Client error '401 Unauthorized' for url 'https://api.anthropic.com/v1/messages/count_tokens'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"
 2026-11-24T14:53:35.480828+00:00,glm,glm-5.4,zai_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,error: RetryError[<Future at 0x752c93ae02d0 state=finished raised HTTPStatusError>]
 2026-11-24T14:53:38.041899+00:00,glm,glm-5.4,zai_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,error: RetryError[<Future at 0x752c93ae8cb0 state=finished raised HTTPStatusError>]
 2026-11-24T14:53:40.572875+00:00,glm,glm-5.4,zai_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,error: RetryError[<Future at 0x752c93c91250 state=finished raised HTTPStatusError>]
@@ -1373,70 +797,6 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-11-24T14:54:50.034144+00:00,glm,glm-5.4,zai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: RetryError[<Future at 0x752c93a27e50 state=finished raised HTTPStatusError>]
 2026-11-24T14:54:52.582227+00:00,glm,glm-5.4,zai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: RetryError[<Future at 0x752c93a54ed0 state=finished raised HTTPStatusError>]
 2026-11-24T14:54:55.154307+00:00,glm,glm-5.4,zai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,error: RetryError[<Future at 0x752c93a55ed0 state=finished raised HTTPStatusError>]
-2026-11-24T14:54:57.910273+00:00,glm,glm-5.3,zai_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,error: RetryError[<Future at 0x752c93a56ed0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:00.501778+00:00,glm,glm-5.3,zai_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,error: RetryError[<Future at 0x752c93a57ed0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:03.098403+00:00,glm,glm-5.3,zai_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,error: RetryError[<Future at 0x752c93a78f50 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:05.648584+00:00,glm,glm-5.3,zai_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,error: RetryError[<Future at 0x752c93a79f50 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:08.216670+00:00,glm,glm-5.3,zai_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,error: RetryError[<Future at 0x752c93a7af50 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:10.760024+00:00,glm,glm-5.3,zai_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,error: RetryError[<Future at 0x752c93a7bf50 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:13.298803+00:00,glm,glm-5.3,zai_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,error: RetryError[<Future at 0x752c938b8fd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:15.868541+00:00,glm,glm-5.3,zai_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,error: RetryError[<Future at 0x752c938b9fd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:18.444502+00:00,glm,glm-5.3,zai_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,error: RetryError[<Future at 0x752c938bafd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:20.965036+00:00,glm,glm-5.3,zai_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,error: RetryError[<Future at 0x752c938bb7d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:23.557761+00:00,glm,glm-5.3,zai_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,error: RetryError[<Future at 0x752c938e1050 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:26.116229+00:00,glm,glm-5.3,zai_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,error: RetryError[<Future at 0x752c938e2050 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:28.677781+00:00,glm,glm-5.3,zai_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,error: RetryError[<Future at 0x752c938e3050 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:31.235843+00:00,glm,glm-5.3,zai_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,error: RetryError[<Future at 0x752c938e3850 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:33.781451+00:00,glm,glm-5.3,zai_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,error: RetryError[<Future at 0x752c939150d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:36.348675+00:00,glm,glm-5.3,zai_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,error: RetryError[<Future at 0x752c939160d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:38.906599+00:00,glm,glm-5.3,zai_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,error: RetryError[<Future at 0x752c939170d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:41.459042+00:00,glm,glm-5.3,zai_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,error: RetryError[<Future at 0x752c939178d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:44.023678+00:00,glm,glm-5.3,zai_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,error: RetryError[<Future at 0x752c93941150 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:46.560628+00:00,glm,glm-5.3,zai_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,error: RetryError[<Future at 0x752c93942150 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:49.138955+00:00,glm,glm-5.3,zai_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,error: RetryError[<Future at 0x752c93943150 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:51.676714+00:00,glm,glm-5.3,zai_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,error: RetryError[<Future at 0x752c93943950 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:54.235979+00:00,glm,glm-5.3,zai_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,error: RetryError[<Future at 0x752c939711d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:56.806151+00:00,glm,glm-5.3,zai_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,error: RetryError[<Future at 0x752c939721d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:55:59.382047+00:00,glm,glm-5.3,zai_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,error: RetryError[<Future at 0x752c939731d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:01.937905+00:00,glm,glm-5.3,zai_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,error: RetryError[<Future at 0x752c939739d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:04.494693+00:00,glm,glm-5.3,zai_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,error: RetryError[<Future at 0x752c93999250 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:07.079517+00:00,glm,glm-5.3,zai_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,error: RetryError[<Future at 0x752c9399a250 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:09.666416+00:00,glm,glm-5.3,zai_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,error: RetryError[<Future at 0x752c9399b250 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:12.219955+00:00,glm,glm-5.3,zai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: RetryError[<Future at 0x752c9399ba50 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:14.769844+00:00,glm,glm-5.3,zai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: RetryError[<Future at 0x752c937cd2d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:17.333922+00:00,glm,glm-5.3,zai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,error: RetryError[<Future at 0x752c937ce2d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:20.051172+00:00,glm,glm-5.3-flash,zai_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,,error: RetryError[<Future at 0x752c937cf2d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:22.591956+00:00,glm,glm-5.3-flash,zai_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,,error: RetryError[<Future at 0x752c937cfad0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:25.154232+00:00,glm,glm-5.3-flash,zai_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,,error: RetryError[<Future at 0x752c937fd350 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:27.700554+00:00,glm,glm-5.3-flash,zai_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,,error: RetryError[<Future at 0x752c937fe350 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:30.252702+00:00,glm,glm-5.3-flash,zai_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,,error: RetryError[<Future at 0x752c937ff350 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:32.773012+00:00,glm,glm-5.3-flash,zai_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,,error: RetryError[<Future at 0x752c937ffb50 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:35.301489+00:00,glm,glm-5.3-flash,zai_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,,error: RetryError[<Future at 0x752c938293d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:37.872051+00:00,glm,glm-5.3-flash,zai_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,,error: RetryError[<Future at 0x752c9382a3d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:40.459735+00:00,glm,glm-5.3-flash,zai_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,,error: RetryError[<Future at 0x752c9382b3d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:43.018045+00:00,glm,glm-5.3-flash,zai_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,,error: RetryError[<Future at 0x752c9382bbd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:45.536382+00:00,glm,glm-5.3-flash,zai_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,,error: RetryError[<Future at 0x752c93859450 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:48.065520+00:00,glm,glm-5.3-flash,zai_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,,error: RetryError[<Future at 0x752c9385a450 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:50.637304+00:00,glm,glm-5.3-flash,zai_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,,error: RetryError[<Future at 0x752c9385b450 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:53.208890+00:00,glm,glm-5.3-flash,zai_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,,error: RetryError[<Future at 0x752c9385bc50 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:55.769546+00:00,glm,glm-5.3-flash,zai_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,,error: RetryError[<Future at 0x752c938894d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:56:58.365212+00:00,glm,glm-5.3-flash,zai_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,,error: RetryError[<Future at 0x752c9388a4d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:00.932396+00:00,glm,glm-5.3-flash,zai_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,,error: RetryError[<Future at 0x752c9388b4d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:03.503355+00:00,glm,glm-5.3-flash,zai_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,,error: RetryError[<Future at 0x752c9388bcd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:06.046454+00:00,glm,glm-5.3-flash,zai_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,,error: RetryError[<Future at 0x752c92b55550 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:08.597200+00:00,glm,glm-5.3-flash,zai_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,,error: RetryError[<Future at 0x752c92b56550 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:11.178578+00:00,glm,glm-5.3-flash,zai_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,,error: RetryError[<Future at 0x752c92b57550 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:13.769030+00:00,glm,glm-5.3-flash,zai_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,,error: RetryError[<Future at 0x752c92b57d50 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:16.322309+00:00,glm,glm-5.3-flash,zai_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,,error: RetryError[<Future at 0x752c92b8d5d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:18.902560+00:00,glm,glm-5.3-flash,zai_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,,error: RetryError[<Future at 0x752c92b8e5d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:21.486552+00:00,glm,glm-5.3-flash,zai_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,,error: RetryError[<Future at 0x752c92b8f5d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:24.025526+00:00,glm,glm-5.3-flash,zai_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,,error: RetryError[<Future at 0x752c92b8fdd0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:26.599062+00:00,glm,glm-5.3-flash,zai_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,,error: RetryError[<Future at 0x752c92bb1650 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:29.141038+00:00,glm,glm-5.3-flash,zai_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,,error: RetryError[<Future at 0x752c92bb2650 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:31.741973+00:00,glm,glm-5.3-flash,zai_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,,error: RetryError[<Future at 0x752c92bb3650 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:34.278333+00:00,glm,glm-5.3-flash,zai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: RetryError[<Future at 0x752c92bb3e50 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:36.841661+00:00,glm,glm-5.3-flash,zai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: RetryError[<Future at 0x752c92bdd6d0 state=finished raised HTTPStatusError>]
-2026-11-24T14:57:39.382347+00:00,glm,glm-5.3-flash,zai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,error: RetryError[<Future at 0x752c92bde6d0 state=finished raised HTTPStatusError>]
 2026-11-24T14:57:40.316957+00:00,google,gemini-4-neon,google_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,440216,
 2026-11-24T14:57:40.718072+00:00,google,gemini-4-neon,google_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,573299,
 2026-11-24T14:57:41.315704+00:00,google,gemini-4-neon,google_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,758220,
@@ -1693,3 +1053,227 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2026-11-24T15:06:29.011896+00:00,openai,gpt-6.1-luna,openai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,,error: The read operation timed out
 2026-11-24T15:06:34.067018+00:00,openai,gpt-6.1-luna,openai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,,error: The read operation timed out
 2026-11-24T15:06:34.265040+00:00,openai,gpt-6.1-luna,openai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,,n/a
+2026-11-24T21:53:06.906631+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,618967,
+2026-11-24T21:53:06.713601+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,805338,
+2026-11-24T21:53:06.958941+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,1049617,
+2026-11-24T21:53:06.888807+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,986963,
+2026-11-24T21:53:07.188596+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,792553,
+2026-11-24T21:53:07.487207+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,755371,
+2026-11-24T21:53:07.495966+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,794775,
+2026-11-24T21:53:07.666480+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,917134,
+2026-11-24T21:53:07.780372+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,936375,
+2026-11-24T21:53:08.234516+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,984354,
+2026-11-24T21:53:08.061766+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,830247,
+2026-11-24T21:53:08.418357+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,1125037,
+2026-11-24T21:53:08.494502+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,769661,
+2026-11-24T21:53:08.596044+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,754386,
+2026-11-24T21:53:09.023374+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,1087808,
+2026-11-24T21:53:09.021861+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,734205,
+2026-11-24T21:53:08.958726+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,1050746,
+2026-11-24T21:53:09.151440+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,630695,
+2026-11-24T21:53:09.453288+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,728056,
+2026-11-24T21:53:09.873404+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,786461,
+2026-11-24T21:53:09.875065+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,1153649,
+2026-11-24T21:53:10.723222+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,1595892,
+2026-11-24T21:53:10.101776+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,892625,
+2026-11-24T21:53:10.512800+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,797661,
+2026-11-24T21:53:10.515712+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,878100,
+2026-11-24T21:53:10.757900+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,897887,
+2026-11-24T21:53:11.239517+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,822428,
+2026-11-24T21:53:10.861726+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,3138,
+2026-11-24T21:53:11.036302+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,5925,
+2026-11-24T21:53:11.070764+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,972,
+2026-11-24T21:53:11.166411+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,1112,
+2026-11-24T21:53:11.333366+00:00,anthropic,claude-fable-5-2,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,7072,
+2026-11-24T21:53:11.872204+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,618967,
+2026-11-24T21:53:12.353826+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,805338,
+2026-11-24T21:53:12.260607+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,1049617,
+2026-11-24T21:53:12.243634+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,986963,
+2026-11-24T21:53:12.576398+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,792553,
+2026-11-24T21:53:12.982063+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,755371,
+2026-11-24T21:53:12.906019+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,794775,
+2026-11-24T21:53:12.987251+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,917134,
+2026-11-24T21:53:13.442570+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,936375,
+2026-11-24T21:53:14.195486+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,984354,
+2026-11-24T21:53:13.611259+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,830247,
+2026-11-24T21:53:13.772812+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,1125037,
+2026-11-24T21:53:14.080542+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,769661,
+2026-11-24T21:53:14.293243+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,754386,
+2026-11-24T21:53:14.480868+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,1087808,
+2026-11-24T21:53:14.931557+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,734205,
+2026-11-24T21:53:14.840260+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,1050746,
+2026-11-24T21:53:14.923081+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,630695,
+2026-11-24T21:53:15.646365+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,728056,
+2026-11-24T21:53:15.427896+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,786461,
+2026-11-24T21:53:15.691847+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,1153649,
+2026-11-24T21:53:16.047325+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,1595892,
+2026-11-24T21:53:16.121576+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,892625,
+2026-11-24T21:53:16.222243+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,797661,
+2026-11-24T21:53:16.135154+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,878100,
+2026-11-24T21:53:16.822905+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,897887,
+2026-11-24T21:53:16.738194+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,822428,
+2026-11-24T21:53:16.462526+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,3138,
+2026-11-24T21:53:16.540579+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,5925,
+2026-11-24T21:53:16.768618+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,972,
+2026-11-24T21:53:16.866699+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,1112,
+2026-11-24T21:53:17.037614+00:00,anthropic,claude-opus-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,7072,
+2026-11-24T21:53:17.567755+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,618967,
+2026-11-24T21:53:17.828873+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,805338,
+2026-11-24T21:53:18.033053+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,1049617,
+2026-11-24T21:53:17.921417+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,986963,
+2026-11-24T21:53:18.126988+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,792553,
+2026-11-24T21:53:18.349177+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,755371,
+2026-11-24T21:53:18.468709+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,794775,
+2026-11-24T21:53:18.901010+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,917134,
+2026-11-24T21:53:18.697697+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,936375,
+2026-11-24T21:53:18.991026+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,984354,
+2026-11-24T21:53:19.051326+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,830247,
+2026-11-24T21:53:19.373790+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,1125037,
+2026-11-24T21:53:19.582272+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,769661,
+2026-11-24T21:53:19.904064+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,754386,
+2026-11-24T21:53:19.792907+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,1087808,
+2026-11-24T21:53:19.852017+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,734205,
+2026-11-24T21:53:20.219813+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,1050746,
+2026-11-24T21:53:20.298034+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,630695,
+2026-11-24T21:53:20.398378+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,728056,
+2026-11-24T21:53:20.497893+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,786461,
+2026-11-24T21:53:20.994055+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,1153649,
+2026-11-24T21:53:21.200613+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,1595892,
+2026-11-24T21:53:20.995975+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,892625,
+2026-11-24T21:53:21.165335+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,797661,
+2026-11-24T21:53:21.788548+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,878100,
+2026-11-24T21:53:21.757696+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,897887,
+2026-11-24T21:53:21.834757+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,822428,
+2026-11-24T21:53:21.499220+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,3138,
+2026-11-24T21:53:21.794394+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,5925,
+2026-11-24T21:53:22.057793+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,972,
+2026-11-24T21:53:22.096676+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,1112,
+2026-11-24T21:53:22.106971+00:00,anthropic,claude-sonnet-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,7072,
+2026-11-24T21:53:22.697685+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,618967,
+2026-11-24T21:53:23.059828+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,805338,
+2026-11-24T21:53:23.178168+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,1049617,
+2026-11-24T21:53:23.226155+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,986963,
+2026-11-24T21:53:23.276737+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,792553,
+2026-11-24T21:53:23.643250+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,755371,
+2026-11-24T21:53:23.777876+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,794775,
+2026-11-24T21:53:23.903645+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,917134,
+2026-11-24T21:53:23.960522+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,936375,
+2026-11-24T21:53:24.250737+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,984354,
+2026-11-24T21:53:24.413583+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,830247,
+2026-11-24T21:53:24.723400+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,1125037,
+2026-11-24T21:53:24.497054+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,769661,
+2026-11-24T21:53:24.797389+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,754386,
+2026-11-24T21:53:25.155653+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,1087808,
+2026-11-24T21:53:24.957452+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,734205,
+2026-11-24T21:53:25.370295+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,1050746,
+2026-11-24T21:53:25.548940+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,630695,
+2026-11-24T21:53:25.462474+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,728056,
+2026-11-24T21:53:25.698893+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,786461,
+2026-11-24T21:53:26.087447+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,1153649,
+2026-11-24T21:53:26.324944+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,1595892,
+2026-11-24T21:53:26.094919+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,892625,
+2026-11-24T21:53:26.326736+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,797661,
+2026-11-24T21:53:26.867027+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,878100,
+2026-11-24T21:53:26.976659+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,897887,
+2026-11-24T21:53:26.973761+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,822428,
+2026-11-24T21:53:26.661541+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,3138,
+2026-11-24T21:53:26.979108+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,5925,
+2026-11-24T21:53:27.181332+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,972,
+2026-11-24T21:53:27.311739+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,1112,
+2026-11-24T21:53:27.284312+00:00,anthropic,claude-haiku-5-5,anthropic_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,7072,
+2026-11-24T22:05:03.590351+00:00,glm,glm-5.3,hf_local,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,396128,
+2026-11-24T22:05:05.394075+00:00,glm,glm-5.3,hf_local,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,515285,
+2026-11-24T22:05:07.546126+00:00,glm,glm-5.3,hf_local,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,674497,
+2026-11-24T22:05:09.611195+00:00,glm,glm-5.3,hf_local,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,636055,
+2026-11-24T22:05:11.564131+00:00,glm,glm-5.3,hf_local,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,506818,
+2026-11-24T22:05:13.567916+00:00,glm,glm-5.3,hf_local,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,485205,
+2026-11-24T22:05:15.463477+00:00,glm,glm-5.3,hf_local,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,507518,
+2026-11-24T22:05:17.688958+00:00,glm,glm-5.3,hf_local,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,592468,
+2026-11-24T22:05:19.857470+00:00,glm,glm-5.3,hf_local,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,602196,
+2026-11-24T22:05:22.160076+00:00,glm,glm-5.3,hf_local,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,634624,
+2026-11-24T22:05:24.162269+00:00,glm,glm-5.3,hf_local,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,531818,
+2026-11-24T22:05:26.794071+00:00,glm,glm-5.3,hf_local,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,722925,
+2026-11-24T22:05:28.913548+00:00,glm,glm-5.3,hf_local,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,493988,
+2026-11-24T22:05:31.105514+00:00,glm,glm-5.3,hf_local,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,483063,
+2026-11-24T22:05:33.684759+00:00,glm,glm-5.3,hf_local,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,699693,
+2026-11-24T22:05:35.756468+00:00,glm,glm-5.3,hf_local,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,473046,
+2026-11-24T22:05:38.394613+00:00,glm,glm-5.3,hf_local,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,680163,
+2026-11-24T22:05:40.326222+00:00,glm,glm-5.3,hf_local,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,402212,
+2026-11-24T22:05:42.381418+00:00,glm,glm-5.3,hf_local,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,468181,
+2026-11-24T22:05:44.483573+00:00,glm,glm-5.3,hf_local,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,499698,
+2026-11-24T22:05:47.360358+00:00,glm,glm-5.3,hf_local,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,746842,
+2026-11-24T22:05:50.691170+00:00,glm,glm-5.3,hf_local,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,1035120,
+2026-11-24T22:05:52.993069+00:00,glm,glm-5.3,hf_local,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,578657,
+2026-11-24T22:05:55.222641+00:00,glm,glm-5.3,hf_local,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,515533,
+2026-11-24T22:05:57.539551+00:00,glm,glm-5.3,hf_local,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,568312,
+2026-11-24T22:05:59.914932+00:00,glm,glm-5.3,hf_local,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,578966,
+2026-11-24T22:06:02.422651+00:00,glm,glm-5.3,hf_local,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,527577,
+2026-11-24T22:06:03.494657+00:00,glm,glm-5.3,hf_local,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,2018,
+2026-11-24T22:06:04.547528+00:00,glm,glm-5.3,hf_local,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,3360,
+2026-11-24T22:06:05.599845+00:00,glm,glm-5.3,hf_local,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,639,
+2026-11-24T22:06:06.647728+00:00,glm,glm-5.3,hf_local,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,551,
+2026-11-24T22:06:07.712691+00:00,glm,glm-5.3,hf_local,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,4258,
+2026-11-24T22:07:29.094477+00:00,glm,glm-5.3-flash,hf_local,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,396128,
+2026-11-24T22:07:30.943269+00:00,glm,glm-5.3-flash,hf_local,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,515285,
+2026-11-24T22:07:33.096212+00:00,glm,glm-5.3-flash,hf_local,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,674497,
+2026-11-24T22:07:35.157994+00:00,glm,glm-5.3-flash,hf_local,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,636055,
+2026-11-24T22:07:36.935811+00:00,glm,glm-5.3-flash,hf_local,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,506818,
+2026-11-24T22:07:38.721068+00:00,glm,glm-5.3-flash,hf_local,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,485205,
+2026-11-24T22:07:40.573296+00:00,glm,glm-5.3-flash,hf_local,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,507518,
+2026-11-24T22:07:42.613280+00:00,glm,glm-5.3-flash,hf_local,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,592468,
+2026-11-24T22:07:44.728775+00:00,glm,glm-5.3-flash,hf_local,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,602196,
+2026-11-24T22:07:47.147726+00:00,glm,glm-5.3-flash,hf_local,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,634624,
+2026-11-24T22:07:49.175327+00:00,glm,glm-5.3-flash,hf_local,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,531818,
+2026-11-24T22:07:51.796706+00:00,glm,glm-5.3-flash,hf_local,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,722925,
+2026-11-24T22:07:53.865219+00:00,glm,glm-5.3-flash,hf_local,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,493988,
+2026-11-24T22:07:55.880876+00:00,glm,glm-5.3-flash,hf_local,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,483063,
+2026-11-24T22:07:58.454691+00:00,glm,glm-5.3-flash,hf_local,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,699693,
+2026-11-24T22:08:00.553158+00:00,glm,glm-5.3-flash,hf_local,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,473046,
+2026-11-24T22:08:03.180732+00:00,glm,glm-5.3-flash,hf_local,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,680163,
+2026-11-24T22:08:05.119893+00:00,glm,glm-5.3-flash,hf_local,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,402212,
+2026-11-24T22:08:07.164793+00:00,glm,glm-5.3-flash,hf_local,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,468181,
+2026-11-24T22:08:09.289268+00:00,glm,glm-5.3-flash,hf_local,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,499698,
+2026-11-24T22:08:12.027618+00:00,glm,glm-5.3-flash,hf_local,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,746842,
+2026-11-24T22:08:15.369607+00:00,glm,glm-5.3-flash,hf_local,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,1035120,
+2026-11-24T22:08:17.828655+00:00,glm,glm-5.3-flash,hf_local,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,578657,
+2026-11-24T22:08:20.079937+00:00,glm,glm-5.3-flash,hf_local,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,515533,
+2026-11-24T22:08:22.405538+00:00,glm,glm-5.3-flash,hf_local,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,568312,
+2026-11-24T22:08:24.803739+00:00,glm,glm-5.3-flash,hf_local,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,578966,
+2026-11-24T22:08:27.106380+00:00,glm,glm-5.3-flash,hf_local,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,527577,
+2026-11-24T22:08:28.164780+00:00,glm,glm-5.3-flash,hf_local,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,2018,
+2026-11-24T22:08:29.219425+00:00,glm,glm-5.3-flash,hf_local,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,3360,
+2026-11-24T22:08:30.294320+00:00,glm,glm-5.3-flash,hf_local,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,639,
+2026-11-24T22:08:31.513262+00:00,glm,glm-5.3-flash,hf_local,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,551,
+2026-11-24T22:08:32.576933+00:00,glm,glm-5.3-flash,hf_local,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,4258,
+2026-11-24T22:14:36.575040+00:00,openai,gpt-6-luna,openai_api,samples/text/Austria,text,901e6d6a6b9cb5d413ba2d68deb6942b9ce086eab34bc0ce38a2250058a86238,1239464,395507,
+2026-11-24T22:14:36.563233+00:00,openai,gpt-6-luna,openai_api,samples/text/Belgium,text,eed000ac03f1dc16787a1fd88a36d39029dcb20ad9b2e9fd8f56188427a7b89e,1594770,514135,
+2026-11-24T22:14:36.996717+00:00,openai,gpt-6-luna,openai_api,samples/text/Bulgaria,text,6d4b8276c5203cc203d7f28ca14fad9afe25ddff4261bfd8ad089562461b2ced,2036127,672582,
+2026-11-24T22:14:36.972335+00:00,openai,gpt-6-luna,openai_api,samples/text/Croatia,text,e9e44f1ffcf0faae64648a3a4f184ad37436e8db38f538356d0e5528f3daaa12,1911522,630968,
+2026-11-24T22:14:38.328283+00:00,openai,gpt-6-luna,openai_api,samples/text/Cyprus,text,558df4f0e9881680aeb15478f70a8c2501e702715e535d1f9517279d80ab6fcc,1557566,504955,
+2026-11-24T22:14:37.097867+00:00,openai,gpt-6-luna,openai_api,samples/text/Czechia,text,5302c4dc2d42bc2b6c24089f03495516b8ae61de66a01758261f3491553d88e7,1481173,483575,
+2026-11-24T22:14:37.638994+00:00,openai,gpt-6-luna,openai_api,samples/text/Denmark,text,845ad6223892fa18b2ac6b7eafea2bf96f720566051940967746d9b08cb7bf12,1588463,505542,
+2026-11-24T22:14:37.625382+00:00,openai,gpt-6-luna,openai_api,samples/text/Estonia,text,051b5d67b0246e1ef47a2590cfe024b37111fe91e4ec24e0eb059e9db36d9dde,1800784,588549,
+2026-11-24T22:14:38.692422+00:00,openai,gpt-6-luna,openai_api,samples/text/Finland,text,dd077556229395cbeb57f48a827f0a8eec40bf9967aacc2304e1ad7ea1c72472,1854792,599889,
+2026-11-24T22:14:38.216264+00:00,openai,gpt-6-luna,openai_api,samples/text/France,text,1c536925b92d796b7410b8bc101fe5e3102868953d6f1dc5f2ebc701b59ce999,1978698,631971,
+2026-11-24T22:14:38.594834+00:00,openai,gpt-6-luna,openai_api,samples/text/Germany,text,b47e5c07d008ec094ed68feb25c76ec4b46026550dc1e40c85d10e538767c7c1,1637886,528863,
+2026-11-24T22:14:38.859339+00:00,openai,gpt-6-luna,openai_api,samples/text/Greece,text,e5154caf2b1d7320d3fa815d34dd5c08cd5eecfb4f3c85a4cb721d5d1b6e4cfd,2194756,720148,
+2026-11-24T22:14:38.871935+00:00,openai,gpt-6-luna,openai_api,samples/text/Hungary,text,923fa825d6b18933ff25c7c47cd210e1ab58f8da3dff6075258bb88ca21a852d,1523197,492174,
+2026-11-24T22:14:39.166608+00:00,openai,gpt-6-luna,openai_api,samples/text/Ireland,text,22303b568538ce4bc2b603ac910e3c903d4dc98c659e5a3ecdff0a52e1ab6e4b,1495412,480993,
+2026-11-24T22:14:39.256519+00:00,openai,gpt-6-luna,openai_api,samples/text/Italy,text,cb44ed4f0f9e196d4bcbd6f98babd6899118ea8692d5c3ec3f0ace02a7e4def2,2146842,697167,
+2026-11-24T22:14:39.374403+00:00,openai,gpt-6-luna,openai_api,samples/text/Latvia,text,b6d5baa5dd8d2e0d884ca001cb5bb4be11f72ab96efa8c5582b61dbcdb7215d9,1459318,470941,
+2026-11-24T22:14:39.448381+00:00,openai,gpt-6-luna,openai_api,samples/text/Lithuania,text,d86ae474c9172e18982c3a0c78c25c095f8d6aa5fe8e7fffc0a0b8438aaed1d2,2061724,675126,
+2026-11-24T22:14:39.638012+00:00,openai,gpt-6-luna,openai_api,samples/text/Luxembourg,text,4f4ca54e0a5147010ecb895004659482d4bb3242b4e5459d015038df16eb0d72,1257168,403093,
+2026-11-24T22:14:39.844916+00:00,openai,gpt-6-luna,openai_api,samples/text/Malta,text,c4eadac26358b7792ec0e275c661666857de1626dacbc72e0c619540f1c0199e,1440918,466324,
+2026-11-24T22:14:40.355209+00:00,openai,gpt-6-luna,openai_api,samples/text/Netherlands,text,babc93d86a625f561e4c4a297a70cf7f00d8619ce802a7042b469fb7b6fb9778,1549921,497825,
+2026-11-24T22:14:40.064217+00:00,openai,gpt-6-luna,openai_api,samples/text/Poland,text,5ebecac245a8b3e6b7508d781a619f36cd55e5c5f08a1da23199f15841701e3b,2222626,742569,
+2026-11-24T22:14:40.360859+00:00,openai,gpt-6-luna,openai_api,samples/text/Portugal,text,d49a29df73751a077364a30637bd04e803b7cafed221370d726af1c7bcfc5193,3049439,1020749,
+2026-11-24T22:14:40.482415+00:00,openai,gpt-6-luna,openai_api,samples/text/Romania,text,5c7b48d4a7d7c55f3bb7d8c8bc7095621735758ee5a1ab4be3967850236988ad,1751179,575051,
+2026-11-24T22:14:40.587039+00:00,openai,gpt-6-luna,openai_api,samples/text/Slovakia,text,457d1fceff88b23164418a04fa702b57cd958e91dcfd397fc681498407f49494,1566905,513515,
+2026-11-24T22:14:40.951522+00:00,openai,gpt-6-luna,openai_api,samples/text/Slovenia,text,d18a3f0a146b3b8ec351363f2282143788a69c42d4a74b07a9588e368bb3bd0a,1729481,564283,
+2026-11-24T22:14:40.995006+00:00,openai,gpt-6-luna,openai_api,samples/text/Spain,text,83f3a46cd4e259a66eb0da5ffd38cfb7d30c6d0197c23aaabb8fb33d32da1ec9,1777021,574989,
+2026-11-24T22:14:41.021706+00:00,openai,gpt-6-luna,openai_api,samples/text/Sweden,text,eba9f51875bad056d95ebabb34483838e32c532859da0a26f3dd5dcd354214bc,1639548,525638,
+2026-11-24T22:14:40.870456+00:00,openai,gpt-6-luna,openai_api,samples/python/public-apis,python,8ee27355dfcf8955c99ef0a01bf9ea75d9239495ef8a9601933e65604bfc2bed,8050,2029,
+2026-11-24T22:14:41.165746+00:00,openai,gpt-6-luna,openai_api,samples/javascript/rea,javascript,8f5a28c68aae8f36ea8f63521e42ba9f825c1fa79824be038a48df62281a80cd,14170,3374,
+2026-11-24T22:14:41.239718+00:00,openai,gpt-6-luna,openai_api,samples/shell/skills,shell,ae1ce5404a1eb90c1e80f6b6ecf101ed05e4efbc5ef62d6d83f896a9377b3878,2240,647,
+2026-11-24T22:14:41.360504+00:00,openai,gpt-6-luna,openai_api,samples/rust/claw-code,rust,c1f351760ac7aa60566075b9f5d383365afcd887ae6a7da247c6f40b02d6f543,2431,556,
+2026-11-24T22:14:41.307380+00:00,openai,gpt-6-luna,openai_api,samples/go/awesome-go,go,6195ba98729f509e8f97071aa60d873a94e6f2e0d4c3822905edfb138cd84756,15587,4310,

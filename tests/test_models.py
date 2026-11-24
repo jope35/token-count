@@ -24,7 +24,7 @@ EXPECTED = {
         "GOOGLE_API_KEY",
         ["gemini-4-neon", "gemini-4-hydrogen", "gemini-4-carbon"],
     ),
-    "glm": ("zai_api", "Z_AI_API_KEY", ["glm-5.4", "glm-5.3", "glm-5.3-flash"]),
+    "glm": ("zai_api", "Z_AI_API_KEY", ["glm-5.4"]),
     "kimi": (
         "kimi_api",
         "MOONSHOT_API_KEY",
@@ -55,6 +55,10 @@ class TestRegistry(unittest.TestCase):
         self.assertEqual(
             [m.model for m in models_for_family("mistral")],
             ["mistral-large-4", "mistral-small-2603", "mistral-medium-3-5"],
+        )
+        self.assertEqual(
+            [m.model for m in models_for_family("glm_local")],
+            ["glm-5.3", "glm-5.3-flash"],
         )
         for m in REGISTRY:
             if m.strategy == "hf_local":

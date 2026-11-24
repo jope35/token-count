@@ -33,7 +33,7 @@ _FAMILIES = {
         "GOOGLE_API_KEY",
         ["gemini-4-neon", "gemini-4-hydrogen", "gemini-4-carbon"],
     ),
-    "glm": ("zai_api", "Z_AI_API_KEY", ["glm-5.4", "glm-5.3", "glm-5.3-flash"]),
+    "glm": ("zai_api", "Z_AI_API_KEY", ["glm-5.4"]),
     "kimi": (
         "kimi_api",
         "MOONSHOT_API_KEY",
@@ -90,6 +90,22 @@ REGISTRY += [
         strategy="hf_local",
         key_env=None,
         tokenizer_file="tokenizers/mistral-medium-3-5.json",
+    ),
+    Model(
+        provider="glm",
+        model="glm-5.3",
+        family="glm_local",
+        strategy="hf_local",
+        key_env=None,
+        tokenizer_file="tokenizers/glm-5.3.json",
+    ),
+    Model(
+        provider="glm",
+        model="glm-5.3-flash",
+        family="glm_local",
+        strategy="hf_local",
+        key_env=None,
+        tokenizer_file="tokenizers/glm-5.3-flash.json",
     ),
 ]
 
