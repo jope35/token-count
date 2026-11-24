@@ -1,0 +1,218 @@
+import contextlib
+import csv
+import hashlib
+import io
+import os
+import subprocess
+import tempfile
+import unittest
+from unittest import mock
+
+import httpx
+
+from tokencount import counters, run
+from tokencount.corpus import Sample
+
+# Plan A contract shape: member names carry no extension and Sample.path is
+# the relative string samples/<file_type>/<name>. sha256 is over the raw bytes
+# while chars is len() of the decoded text, so the fixture is non-ASCII to
+# pin the units (5 characters, 6 bytes).
+SAMPLE = Sample(path="samples/text/France", file_type="text", name="France",
+                sha256=hashlib.sha256("héllo".encode("utf-8")).hexdigest(),
+                chars=5, text="héllo")
+
+
+def fake_corpus(*args, **kwargs):
+    return [SAMPLE]
+
+
+FAMILY_KEY = {
+    "openai": "OPENAI_API_KEY",
+    "anthropic": "ANTHROPIC_API_KEY",
+    "google": "GOOGLE_API_KEY",
+    "glm": "Z_AI_API_KEY",
+    "kimi": "MOONSHOT_API_KEY",
+}
+ALL_SECRETS = {k: k.lower() for k in FAMILY_KEY.values()}
+
+
+class TestRouteEnv(unittest.TestCase):
+    def test_all_families_route_to_single_venv(self):
+        for family in FAMILY_KEY:
+            self.assertEqual(run.route_env(family), ".venv")
+
+
+class TestFamilyEnv(unittest.TestCase):
+    def test_least_privilege(self):
+        for family, key_env in FAMILY_KEY.items():
+            env = run.family_env(family, ALL_SECRETS)
+            self.assertEqual(env["PYTHONPATH"], "src")
+            self.assertEqual(env[key_env], ALL_SECRETS[key_env])
+            self.assertEqual(set(env) - {"PYTHONPATH", key_env}, set())
+
+    def test_missing_key_omitted(self):
+        self.assertEqual(run.family_env("glm", {}), {"PYTHONPATH": "src"})
+
+
+class TestWorker(unittest.TestCase):
+    def run_worker(self, family, csv_path, fresh=False, env=None):
+        with mock.patch.object(run, "load_entries", return_value=[]), \
+             mock.patch.object(run, "fetch_corpus", fake_corpus), \
+             mock.patch.dict(os.environ, env or {}, clear=True), \
+             mock.patch("tokencount.counters.count_tokens", return_value=7) as ct:
+            rc = run.run_worker(family, fresh=fresh, results_csv=csv_path)
+        return rc, ct
+
+    def read_rows(self, csv_path):
+        with open(csv_path, newline="") as f:
+            return list(csv.DictReader(f))
+
+    def test_appends_rows_with_exact_columns(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            rc, ct = self.run_worker("openai", csv_path, env={"OPENAI_API_KEY": "k"})
+            self.assertEqual(rc, 0)
+            self.assertEqual(ct.call_count, 4)
+            rows = self.read_rows(csv_path)
+            self.assertEqual(len(rows), 4)
+            self.assertEqual(list(rows[0].keys()), run.CSV_COLUMNS)
+            r = rows[0]
+            self.assertTrue(r["file"].startswith("samples/"))
+            self.assertEqual(
+                (r["provider"], r["model"], r["strategy"], r["file"], r["file_type"],
+                 r["sha256"], r["chars"], r["tokens"], r["note"]),
+                ("openai", "gpt-6.2-astra", "openai_api", "samples/text/France",
+                 "text", SAMPLE.sha256, "5", "7", ""),
+            )
+
+    def write_existing(self, csv_path):
+        with open(csv_path, "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(run.CSV_COLUMNS)
+            w.writerow(["2026-11-24T00:00:00+00:00", "openai", "gpt-6.2-astra", "openai_api",
+                        "samples/text/France", "text", SAMPLE.sha256, "5", "7", ""])
+
+    def test_dedup_skips_existing_pair(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            self.write_existing(csv_path)
+            rc, ct = self.run_worker("openai", csv_path, env={"OPENAI_API_KEY": "k"})
+            self.assertEqual(ct.call_count, 3)
+            self.assertEqual(len(self.read_rows(csv_path)), 4)
+
+    def test_fresh_recounts_everything(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            self.write_existing(csv_path)
+            rc, ct = self.run_worker("openai", csv_path, fresh=True, env={"OPENAI_API_KEY": "k"})
+            self.assertEqual(ct.call_count, 4)
+
+    def test_error_note_row(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            with mock.patch.object(run, "load_entries", return_value=[]), \
+                 mock.patch.object(run, "fetch_corpus", fake_corpus), \
+                 mock.patch.dict(os.environ, {"GOOGLE_API_KEY": "k"}, clear=True), \
+                 mock.patch("tokencount.counters.count_tokens", side_effect=RuntimeError("boom")):
+                run.run_worker("google", results_csv=csv_path)
+            rows = self.read_rows(csv_path)
+            self.assertEqual(len(rows), 3)
+            for r in rows:
+                self.assertEqual(r["tokens"], "")
+                self.assertEqual(r["note"], "error: boom")
+
+    def test_error_rows_are_recounted_on_rerun(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            with mock.patch.object(run, "load_entries", return_value=[]), \
+                 mock.patch.object(run, "fetch_corpus", fake_corpus), \
+                 mock.patch.dict(os.environ, {"GOOGLE_API_KEY": "k"}, clear=True), \
+                 mock.patch("tokencount.counters.count_tokens", side_effect=RuntimeError("boom")):
+                run.run_worker("google", results_csv=csv_path)
+            rc, ct = self.run_worker("google", csv_path, env={"GOOGLE_API_KEY": "k"})
+            self.assertEqual(ct.call_count, 3)
+            rows = self.read_rows(csv_path)
+            self.assertEqual(len(rows), 6)
+            self.assertEqual([r["tokens"] for r in rows[3:]], ["7", "7", "7"])
+            rc, ct = self.run_worker("google", csv_path, env={"GOOGLE_API_KEY": "k"})
+            self.assertEqual(ct.call_count, 0)
+            self.assertEqual(len(self.read_rows(csv_path)), 6)
+
+    def test_torn_trailing_row_is_not_a_dedup_key(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            with open(csv_path, "w", newline="") as f:
+                f.write(",".join(run.CSV_COLUMNS) + "\n")
+                f.write("2026-11-24T00:00:00+00:00,openai,gpt-6.2-astra,openai_api,"
+                        "samples/text/France,text,%s,5,7,\n" % SAMPLE.sha256)
+                f.write("2026-11-24T00:00:00+00:00,openai,gpt-6.2-sol")  # torn line, no newline
+            keys = run.read_dedup_keys(csv_path)
+            self.assertEqual(keys, {("gpt-6.2-astra", "openai_api", "samples/text/France", SAMPLE.sha256)})
+            rc, ct = self.run_worker("openai", csv_path, env={"OPENAI_API_KEY": "k"})
+            self.assertEqual(ct.call_count, 3)  # the torn row's model is recounted
+
+
+class TestOrchestrator(unittest.TestCase):
+    def test_dispatches_one_subprocess_per_family(self):
+        with mock.patch.object(run, "resolve_secrets", return_value=ALL_SECRETS), \
+             mock.patch.object(run, "load_entries", return_value=[]), \
+             mock.patch.object(run, "fetch_corpus", fake_corpus), \
+             mock.patch.object(run, "subprocess") as sp, \
+             mock.patch.object(run, "render_results") as rr:
+            sp.run.return_value = subprocess.CompletedProcess(args=[], returncode=0)  # ruling R1: bare MagicMock returncode is not 0
+            rc = run.main([])
+        self.assertEqual(rc, 0)
+        self.assertEqual(sp.run.call_count, 5)
+        families = []
+        for call in sp.run.call_args_list:
+            cmd = call.args[0]
+            env = call.kwargs["env"]
+            self.assertEqual(cmd[:3], [".venv/bin/python", "-m", "tokencount"])
+            self.assertIn("--family", cmd)
+            family = cmd[cmd.index("--family") + 1]
+            families.append(family)
+            self.assertEqual(set(env), {"PYTHONPATH", FAMILY_KEY[family]})
+        self.assertEqual(sorted(families), sorted(FAMILY_KEY))
+        rr.assert_called_once_with()
+
+    def test_fresh_flag_propagates_to_workers_and_fetch(self):
+        with mock.patch.object(run, "resolve_secrets", return_value={}), \
+             mock.patch.object(run, "load_entries", return_value=[]), \
+             mock.patch.object(run, "fetch_corpus", return_value=[SAMPLE]) as fc, \
+             mock.patch.object(run, "subprocess") as sp, \
+             mock.patch.object(run, "render_results"):
+            run.main(["--fresh"])
+        for call in sp.run.call_args_list:
+            self.assertIn("--fresh", call.args[0])
+        self.assertEqual(fc.call_args.kwargs.get("fresh"), True)
+
+    def test_failed_worker_makes_main_nonzero_but_still_renders(self):
+        with mock.patch.object(run, "resolve_secrets", return_value={}), \
+             mock.patch.object(run, "load_entries", return_value=[]), \
+             mock.patch.object(run, "fetch_corpus", fake_corpus), \
+             mock.patch.object(run, "subprocess") as sp, \
+             mock.patch.object(run, "render_results") as rr:
+            sp.run.return_value = subprocess.CompletedProcess(args=[], returncode=1)
+            rc = run.main([])
+        self.assertEqual(rc, 1)
+        rr.assert_called_once_with()
+
+
+class TestSecretsGuard(unittest.TestCase):
+    def test_dotenv_loaded_and_process_env_wins(self):
+        import os as _os, tempfile as _tf
+        with _tf.NamedTemporaryFile("w", suffix=".env", delete=False) as f:
+            f.write("OPENAI_API_KEY=from-dotenv\n# comment\n")
+            path = f.name
+        try:
+            with mock.patch.dict(_os.environ, {"OPENAI_API_KEY": "from-env"}):
+                self.assertEqual(run.resolve_secrets(dotenv_path=path)["OPENAI_API_KEY"], "from-env")
+            with mock.patch.dict(_os.environ, {}, clear=True):
+                self.assertEqual(run.resolve_secrets(dotenv_path=path)["OPENAI_API_KEY"], "from-dotenv")
+        finally:
+            _os.unlink(path)
+
+    def test_missing_dotenv_and_keys_yield_empty_dict(self):
+        import os as _os
+        with mock.patch.dict(_os.environ, {}, clear=True):
+            self.assertEqual(run.resolve_secrets(dotenv_path="/nonexistent/.env"), {})
