@@ -152,6 +152,16 @@ class TestFetchCorpus(unittest.TestCase):
             with self.assertRaises(httpx.HTTPStatusError):
                 fetch_corpus([ENTRY], dest_dir=td)
 
+    def test_show_progress_false_returns_same_samples(self):
+        def handler(request):
+            return httpx.Response(200, content=b"progress body")
+
+        with tempfile.TemporaryDirectory() as td, _patch_client(handler):
+            s = fetch_corpus([ENTRY], dest_dir=td, show_progress=False)[0]
+        self.assertEqual(s.text, "progress body")
+        self.assertEqual(s.sha256, hashlib.sha256(b"progress body").hexdigest())
+        self.assertEqual(str(Path(td) / "text" / "Austria"), s.path)
+
     def test_make_client_sends_descriptive_user_agent(self):
         # Wikipedia 403s the default python-httpx UA; a live fetch needs a
         # descriptive one.

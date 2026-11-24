@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import httpx
+from tqdm import tqdm
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 EU_MEMBERS_FILE = REPO_ROOT / "corpus" / "eu-members.txt"
@@ -72,11 +73,11 @@ def _make_client() -> httpx.Client:
 
 
 def fetch_corpus(
-    entries: list[CorpusEntry], dest_dir="samples", fresh=False
+    entries: list[CorpusEntry], dest_dir="samples", fresh=False, show_progress=True
 ) -> list[Sample]:
     client = _make_client()
     samples: list[Sample] = []
-    for entry in entries:
+    for entry in (tqdm(entries, desc="corpus", unit="file") if show_progress else entries):
         dest = Path(dest_dir) / entry.file_type / entry.name
         if dest.exists() and not fresh:
             data = dest.read_bytes()
