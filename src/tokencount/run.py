@@ -4,7 +4,7 @@ import os
 import subprocess
 from datetime import datetime, timezone
 
-from tokencount import counters
+from tokencount import counters, table
 from tokencount.corpus import fetch_corpus, load_entries
 from tokencount.models import REGISTRY, models_for_family
 
@@ -22,7 +22,7 @@ CSV_COLUMNS = [
 ]
 RESULTS_CSV = "results/results.csv"
 
-SECRET_KEYS = sorted({m.key_env for m in REGISTRY})
+SECRET_KEYS = sorted({m.key_env for m in REGISTRY if m.key_env})
 
 
 def route_env(family: str) -> str:
@@ -105,7 +105,11 @@ def append_row(csv_path: str, row: dict) -> None:
 def count_sample(model, sample, key) -> tuple:
     try:
         tokens = counters.count_tokens(
-            model.strategy, model.model, sample.text, key=key
+            model.strategy,
+            model.model,
+            sample.text,
+            key=key,
+            tokenizer_file=model.tokenizer_file,
         )
         return str(tokens), ""
     except counters.MissingKeyError as e:
@@ -121,7 +125,7 @@ def run_worker(family: str, fresh: bool = False, results_csv: str = None) -> int
     samples = fetch_corpus(load_entries(), fresh=fresh)
     deduped = set() if fresh else read_dedup_keys(csv_path)
     models = models_for_family(family)
-    key = os.environ.get(models[0].key_env)
+    key = os.environ.get(models[0].key_env) if models[0].key_env else None
     for model in models:
         for sample in samples:
             if (model.model, model.strategy, sample.path, sample.sha256) in deduped:
@@ -146,8 +150,7 @@ def run_worker(family: str, fresh: bool = False, results_csv: str = None) -> int
 
 
 def render_results() -> None:
-    # PLAN C HOOK: table.py implements this
-    return None
+    table.write_table()
 
 
 def main(argv=None) -> int:

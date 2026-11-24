@@ -36,12 +36,13 @@ FAMILY_KEY = {
     "glm": "Z_AI_API_KEY",
     "kimi": "MOONSHOT_API_KEY",
 }
+LOCAL_FAMILIES = {"deepseek", "mistral"}
 ALL_SECRETS = {k: k.lower() for k in FAMILY_KEY.values()}
 
 
 class TestRouteEnv(unittest.TestCase):
     def test_all_families_route_to_single_venv(self):
-        for family in FAMILY_KEY:
+        for family in list(FAMILY_KEY) + sorted(LOCAL_FAMILIES):
             self.assertEqual(run.route_env(family), ".venv")
 
 
@@ -55,6 +56,17 @@ class TestFamilyEnv(unittest.TestCase):
 
     def test_missing_key_omitted(self):
         self.assertEqual(run.family_env("glm", {}), {"PYTHONPATH": "src"})
+
+    def test_local_family_gets_no_key(self):
+        for family in LOCAL_FAMILIES:
+            self.assertEqual(run.family_env(family, ALL_SECRETS), {"PYTHONPATH": "src"})
+
+
+class TestRenderResults(unittest.TestCase):
+    def test_render_results_calls_write_table(self):
+        with mock.patch("tokencount.table.write_table") as wt:
+            run.render_results()
+        wt.assert_called_once_with()
 
 
 class TestWorker(unittest.TestCase):
@@ -218,7 +230,7 @@ class TestOrchestrator(unittest.TestCase):
             )  # ruling R1: bare MagicMock returncode is not 0
             rc = run.main([])
         self.assertEqual(rc, 0)
-        self.assertEqual(sp.run.call_count, 5)
+        self.assertEqual(sp.run.call_count, 7)
         families = []
         for call in sp.run.call_args_list:
             cmd = call.args[0]
@@ -227,8 +239,15 @@ class TestOrchestrator(unittest.TestCase):
             self.assertIn("--family", cmd)
             family = cmd[cmd.index("--family") + 1]
             families.append(family)
-            self.assertEqual(set(env), {"PYTHONPATH", FAMILY_KEY[family]})
-        self.assertEqual(sorted(families), sorted(FAMILY_KEY))
+            expected = (
+                {"PYTHONPATH"}
+                if family in LOCAL_FAMILIES
+                else {"PYTHONPATH", FAMILY_KEY[family]}
+            )
+            self.assertEqual(set(env), expected)
+        self.assertEqual(
+            sorted(families), sorted(list(FAMILY_KEY) + list(LOCAL_FAMILIES))
+        )
         rr.assert_called_once_with()
 
     def test_fresh_flag_propagates_to_workers_and_fetch(self):
