@@ -9,4 +9,4 @@
 - use the wa tool to prompt the user
 
 ## subagents
-- for subagents always use mistral large medium 
+- for subagents always use mistral large
