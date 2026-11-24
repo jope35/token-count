@@ -1,0 +1,7 @@
+# repos.txt — most-starred GitHub repo per language, chosen via the GitHub search API (sort=stars) on 2026-11-24.
+# Format: <file_type> <name> <owner/repo> <git-sha> <path-in-repo>
+python public-apis public-apis/public-apis 9fb3bdb62643400aaebee03a2ecce0cd1ec934eb scripts/validate/links.py
+javascript rea morluto/rea eb256b3ac6ead12c11fe9b52ae1891b57ee8f4da src/adb/AdbCommand.ts
+shell skills mattpocock/skills abeeaf95660ba9e8b7c753eb38f441ca707a8823 scripts/link-skills.sh
+rust claw-code ultraworkers/claw-code a5c2775e81153b42e5e3910cf3f12982879eef78 rust/crates/api/src/lib.rs
+go awesome-go avelino/awesome-go bd23d8783aa140e6ad7da9058d382caabf62175d .github/scripts/check-quality/main.go

@@ -1,0 +1,15 @@
+[project]
+name = "token-count"
+version = "0.1.0"
+description = "how many tokens does the tokenizer use aka how to scale token prices between models"
+requires-python = ">=3.14"
+dependencies = [
+    "httpx",
+    "tenacity",
+    "tiktoken",
+    "tokenizers",
+]
+
+[tool.uv]
+# The package is run from src via PYTHONPATH=src, not installed.
+package = false
