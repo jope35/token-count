@@ -17,14 +17,14 @@
 - Secrets: `secretspec.toml` declares `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `GOOGLE_API_KEY`, `Z_AI_API_KEY`, `MOONSHOT_API_KEY`, each `required = false`, project provider chain `["sops", "env"]` under `[defaults].providers` (secretspec 0.21+); `secrets.enc.yaml` is committed SOPS+age ciphertext only; `.sops.yaml` holds the age creation rule; `.gitignore` covers `.venv*`, `__pycache__`, `samples/`, `key.txt`, `*.age`.
 - Corpus (owner decision 2026-11-24, overrides the spec's inline URL list): `corpus/eu-members.txt` = 27 lines of `<file_type> <name> <url>` with file type `text` and `https://en.wikipedia.org/wiki/<Country>`; `corpus/repos.txt` = 5 lines of `<file_type> <name> <owner/repo> <git-sha> <path-in-repo>` with file types python, javascript, shell, rust, go and a comment header noting 2026-11-24; `samples/` is gitignored and the data files are the committed source of truth; fetch live at run time, cache unless `--fresh`; CSV keys on sha256 of file content.
 - Plan split (owner decision 2026-11-24): Plan A = base environment + corpus definition/fetch only; Plan B owns `models.py`, `counters.py`, `run.py` and the CSV; Plan C owns `table.py` and `results/table.md`.
-- Shared contract produced by this plan (exact names/signatures): `CorpusEntry(file_type: str, name: str, url: str, repo: str|None, sha: str|None, path: str|None)`; `load_entries() -> list[CorpusEntry]`; `Sample(path, file_type, name, sha256, chars, text)`; `fetch_corpus(entries, dest_dir="samples", fresh=False) -> list[Sample]` — for repo entries `load_entries` sets `url = https://raw.githubusercontent.com/<repo>/<sha>/<path>`.
+- Shared contract produced by this plan (exact names/signatures): `CorpusEntry(file_type: str, name: str, url: str, repo: str|None, sha: str|None, path: str|None)`; `load_entries() -> list[CorpusEntry]`; `Sample(path, file_type, name, sha256, chars, text)`; `fetch_corpus(entries, dest_dir="samples", fresh=False) -> list[Sample]` — for repo entries `load_entries` sets `url = https://raw.githubusercontent.com/<repo>/<sha>/<path>`. `Sample.path` is `str(Path(dest_dir) / entry.file_type / entry.name)`: with the default `dest_dir` and a repo-root CWD that is the relative string `samples/<file_type>/<name>` (member names carry no extension, e.g. `samples/text/France`; repo entries use the repo short name, e.g. `samples/python/public-apis`). Plan B writes this exact string into the CSV `file` column and the dedup key, so `dest_dir` must stay `"samples"` and runs must stay at the repo root. `chars` is `len()` of the decoded text (characters, not bytes); `sha256` is over the raw bytes.
 - Tests: stdlib unittest only, run from the repo root in the base env: `PYTHONPATH=src .venv/bin/python -m unittest tests.test_scaffolding tests.test_secretspec tests.test_corpus_data tests.test_corpus` (plans B/C add `tests.test_table` / `tests.test_counters`).
 
 ## Builder Decisions (marked)
 
 - `.python-version` = `3.14` (matches the environment's Python 3.14.4; uv discovers it for `uv venv`).
 - The owner's "javascript/typescript" slot is resolved as the most-starred repo across `language:javascript` AND `language:typescript` searches → **morluto/rea** (TypeScript, 476,080 stars) with sample file `src/adb/AdbCommand.ts`, stored under file type `javascript`. If the owner prefers the `language:javascript`-only top (affaan-m/ECC, 309,756 stars), it is a one-line edit in `corpus/repos.txt`.
-- Repo choices and HEAD shas below were captured via the GitHub API on 2026-11-24; Task 3 re-runs the API calls at execution time and records the then-current HEAD sha (repo choice and sample path are fixed; re-verify the path exists at the recorded sha).
+- Repo choices and HEAD shas below were captured via the GitHub API on 2026-11-24; Task 3 re-runs the API calls at execution time and records the then-current HEAD sha (repo choice and sample path are fixed; re-verify the path exists at the recorded sha). Re-validated 2026-11-24 with the authenticated search API: the five picks are still the `sort=stars` top per language (public-apis/public-apis 501,109; morluto/rea 476,104 vs affaan-m/ECC 309,762 in the combined JS/TS slot; mattpocock/skills 331,665; ultraworkers/claw-code 194,722; avelino/awesome-go 195,663 — star counts drifted slightly from the figures above), all five sample paths exist at the recorded shas (git/trees API) and the raw.githubusercontent.com URLs return 200, and all 27 Wikipedia URLs return HTTP 200.
 - `parse_entries(members_path, repos_path)` helper is added so tests can parse tmp files while `load_entries()` keeps the exact contract signature; `_make_client()` factory is added so tests inject `httpx.Client(transport=httpx.MockTransport(...))`.
 - Requirements are regenerated with stdin input, e.g. `printf 'httpx\nsecretspec>=0.21,<0.22\n' | uv pip compile - --python-version 3.14 -o requirements/base.txt`.
 - `sops`/`age` are not installed in the drafting environment, so `secrets.enc.yaml` is committed as a documented empty placeholder; Task 2 includes the step that creates the real ciphertext on a machine with an age identity.
@@ -35,7 +35,7 @@
 - Cache/`--fresh` logic inverted (cache bypassed or fresh ignored) → `TestFetchCorpus.test_cache_reuse_makes_no_http_request` and `test_fresh_redownloads` (Task 4).
 - sha256 computed over bytes but chars over something else (or vice versa) → `TestFetchCorpus.test_sha256_and_chars` (Task 4).
 - Committed data files drifting from the contract (not 27/5 lines, sha not 40-hex, header missing) → `tests.test_corpus_data` (Task 3).
-- `secretspec.toml` not matching the 0.21 schema (chain not under `[defaults].providers`, keys not `required = false`) → `tests.test_secretspec` (Task 2); requirements not fully pinned `name==version` → `tests.test_scaffolding` (Task 1).
+- `secretspec.toml` not matching the 0.21 schema (chain not under `[defaults].providers`, keys not `required = false`) → `tests.test_secretspec`: `TestSecretspecToml` checks the toml shape, `TestSecretspecSdk` validates the manifest against the installed SDK's value-free `report()` so a schema error fails in plan A, not at plan B runtime (Task 2); requirements not fully pinned `name==version` → `tests.test_scaffolding` (Task 1; the filter strips before testing for `#` because `uv pip compile` emits indented `    # via ...` comments).
 
 ### Task 1: Repo scaffolding — .python-version, .gitignore, pinned requirements, devenv.sh
 
@@ -65,7 +65,7 @@
               path = ROOT / "requirements" / f"{name}.txt"
               self.assertTrue(path.is_file(), str(path))
               lines = [l for l in path.read_text(encoding="utf-8").splitlines()
-                       if l.strip() and not l.startswith("#")]
+                       if l.strip() and not l.strip().startswith("#")]
               self.assertTrue(lines, str(path))
               for line in lines:
                   self.assertRegex(line, PINNED, line)
@@ -81,7 +81,8 @@
   - `printf 'httpx\ntenacity\ntiktoken\n' | uv pip compile - --python-version 3.14 -o requirements/api.txt`
   - `printf 'tokenizers\n' | uv pip compile - --python-version 3.14 -o requirements/deepseek.txt`
   - `printf 'tokenizers\n' | uv pip compile - --python-version 3.14 -o requirements/mistral.txt`
-  Write `devenv.sh` (bash, `set -euo pipefail`, `chmod +x`): `uv venv .venv` + `uv pip install --python .venv/bin/python -r requirements/base.txt`; same pattern for `.venv-api`/api.txt, `.venv-deepseek`/deepseek.txt, `.venv-mistral`/mistral.txt; then warn-only checks: `command -v sops >/dev/null 2>&1 || echo "warning: sops not on PATH (sops:// provider needs it)" >&2` and warn if neither `SOPS_AGE_KEY`, `SOPS_AGE_KEY_FILE`, nor `$HOME/.config/age/key.txt` exists. Verify syntax: `bash -n devenv.sh`, then run `./devenv.sh` to create the four envs.
+  Note: `uv pip compile` interleaves indented `    # via ...` comments between the pins (verified with uv 0.12.17, e.g. 10 of the 18 non-empty lines of base.txt), so the Step 1 filter must strip a line before testing for `#`; only the `# This file was autogenerated...` header starts at column 0.
+  Write `devenv.sh` (bash, `set -euo pipefail`, `chmod +x`): `uv venv .venv` + `uv pip install --python .venv/bin/python -r requirements/base.txt`; same pattern for `.venv-api`/api.txt, `.venv-deepseek`/deepseek.txt, `.venv-mistral`/mistral.txt; then warn-only checks: `command -v sops >/dev/null 2>&1 || echo "warning: sops not on PATH (sops:// provider needs it)" >&2`; `command -v secretspec >/dev/null 2>&1 || echo "warning: secretspec CLI not on PATH (needed for 'secretspec set'/'secretspec check'; install with 'curl -sSL https://install.secretspec.dev | sh' — the secretspec pip wheel in .venv ships the Python SDK only, no CLI binary)" >&2`; and warn if none of `SOPS_AGE_KEY`, `SOPS_AGE_KEY_FILE`, `$HOME/.config/age/key.txt`, `$HOME/.config/sops/age/keys.txt` exists (the last is sops' own default age-identity lookup, https://getsops.io/docs/usage/identities/age/). Verify syntax: `bash -n devenv.sh`, then run `./devenv.sh` to create the four envs.
 - [ ] **Step 4: run tests, expect pass.** `PYTHONPATH=src .venv/bin/python -m unittest tests.test_scaffolding -v` → 2 tests OK (all four files exist, every non-comment line matches `name==version`, base pins `httpx==` and `secretspec==0.21.`); `bash -n devenv.sh` → exit 0.
 - [ ] **Step 5: commit.** `git add .python-version .gitignore requirements devenv.sh tests && git commit -m "chore: base environment scaffolding (devenv.sh, pinned requirements, gitignore)"`
 
@@ -116,6 +117,21 @@
           for key in KEYS:
               self.assertIn(key, secrets)
               self.assertIs(secrets[key]["required"], False)
+
+
+  class TestSecretspecSdk(unittest.TestCase):
+      def test_manifest_validates_against_installed_sdk(self):
+          import importlib.util
+          if importlib.util.find_spec("secretspec") is None:
+              self.skipTest("secretspec SDK not installed; run in the base .venv")
+          from secretspec import SecretSpec
+          report = (SecretSpec.builder()
+                    .with_path(str(ROOT / "secretspec.toml"))
+                    .with_reason("plan A validation")
+                    .report())
+          self.assertEqual(sorted(KEYS), sorted(s.name for s in report.secrets))
+          for s in report.secrets:
+              self.assertIs(s.required, False)
   ```
 - [ ] **Step 2: run it, expect failure.** `python3 -m unittest tests.test_secretspec -v` → FAIL: `FileNotFoundError: secretspec.toml`.
 - [ ] **Step 3: implement.** Write `secretspec.toml` exactly:
@@ -147,8 +163,8 @@
     - path_regex: secrets\.enc\.yaml$
       age: age1REPLACE_WITH_YOUR_PUBLIC_RECIPIENT
   ```
-  Write `secrets.enc.yaml` as a commented placeholder (empty values, no secrets) headed by the replacement instructions: `printf 'OPENAI_API_KEY: ""\nANTHROPIC_API_KEY: ""\nGOOGLE_API_KEY: ""\nZ_AI_API_KEY: ""\nMOONSHOT_API_KEY: ""\n' | sops --encrypt --age <recipient-from-.sops.yaml> /dev/stdin > secrets.enc.yaml`. Because `sops` is not on PATH in this environment, add this step for a machine with an age identity: create the real ciphertext with that command, then set each key once with `secretspec set OPENAI_API_KEY --provider sops://secrets.enc.yaml` (likewise ANTHROPIC_API_KEY, GOOGLE_API_KEY, Z_AI_API_KEY, MOONSHOT_API_KEY) and verify with `secretspec check`.
-- [ ] **Step 4: run tests, expect pass.** `PYTHONPATH=src .venv/bin/python -m unittest tests.test_secretspec -v` → 1 test OK (tomllib parses; chain `["sops","env"]`; exactly the five keys, each `required = false`).
+  Write `secrets.enc.yaml` as a commented placeholder (empty values, no secrets) headed by the replacement instructions: `printf 'token-count:\n  default:\n    OPENAI_API_KEY: ""\n    ANTHROPIC_API_KEY: ""\n    GOOGLE_API_KEY: ""\n    Z_AI_API_KEY: ""\n    MOONSHOT_API_KEY: ""\n' | sops --encrypt --age <recipient-from-.sops.yaml> /dev/stdin > secrets.enc.yaml`. The nesting is required, not cosmetic: the `sops://` provider reads a single YAML file as `[project][profile][key]` (project `token-count`, profile `default`), so a flat `OPENAI_API_KEY: ...` file decrypts fine but reads as zero keys — silent, because every key is `required = false` (https://secretspec.dev/providers/sops/). Because `sops` is not on PATH in this environment, add this step for a machine with an age identity: create the real ciphertext with that command, then set each key once with `secretspec set OPENAI_API_KEY --provider sops://secrets.enc.yaml` (likewise ANTHROPIC_API_KEY, GOOGLE_API_KEY, Z_AI_API_KEY, MOONSHOT_API_KEY) and verify with `secretspec check --no-prompt`. Note the `secretspec` CLI comes from `curl -sSL https://install.secretspec.dev | sh`, not from the pip wheel (the wheel ships only the Python SDK); the SDK also appends access records to `~/.local/state/secretspec/audit.log` (disable with `[audit] enabled = false` in the user config if unwanted).
+- [ ] **Step 4: run tests, expect pass.** `PYTHONPATH=src .venv/bin/python -m unittest tests.test_secretspec -v` → 2 tests OK in the base `.venv`: the tomllib parse (chain `["sops","env"]`; exactly the five keys, each `required = false`) plus `TestSecretspecSdk`, which validates the manifest against the real installed SDK via the value-free `report()` — a schema mistake (wrong section, wrong field, wrong chain) fails here, not at plan B runtime. Under the Step 2 system `python3` the SDK test skips (no secretspec installed).
 - [ ] **Step 5: commit.** `git add secretspec.toml .sops.yaml secrets.enc.yaml tests/test_secretspec.py && git commit -m "chore: secretspec manifest + SOPS/age secrets scaffolding"`
 
 ### Task 3: Corpus data files — corpus/eu-members.txt and corpus/repos.txt
@@ -379,6 +395,13 @@
           self.assertEqual(len("héllo wörld"), s.chars)
           self.assertEqual("héllo wörld", s.text)
 
+      def test_http_error_raises(self):
+          def handler(request):
+              return httpx.Response(404)
+          with tempfile.TemporaryDirectory() as td, _patch_client(handler):
+              with self.assertRaises(httpx.HTTPStatusError):
+                  fetch_corpus([ENTRY], dest_dir=td)
+
 
   class TestLoadEntriesCommitted(unittest.TestCase):
       def test_committed_corpus_loads(self):
@@ -393,8 +416,8 @@
                   self.assertTrue(e.url.startswith("https://raw.githubusercontent.com/"))
   ```
 - [ ] **Step 2: run it, expect failure.** `PYTHONPATH=src python3 -m unittest tests.test_corpus -v` → FAIL: `ModuleNotFoundError: No module named 'tokencount'`.
-- [ ] **Step 3: implement.** Create `src/tokencount/__init__.py` (empty) and `src/tokencount/corpus.py` with exactly the contract signatures: `@dataclass CorpusEntry(file_type: str, name: str, url: str, repo: str|None, sha: str|None, path: str|None)`; module constants `REPO_ROOT = Path(__file__).resolve().parents[2]`, `EU_MEMBERS_FILE = REPO_ROOT / "corpus" / "eu-members.txt"`, `REPOS_FILE = REPO_ROOT / "corpus" / "repos.txt"`; `parse_entries(members_path=EU_MEMBERS_FILE, repos_path=REPOS_FILE) -> list[CorpusEntry]` (skip blank/`#` lines; 3 fields → member entry with repo/sha/path None; 5 fields → repo entry with `url = f"https://raw.githubusercontent.com/{repo}/{sha}/{path}"`; any other field count raises `ValueError`); `load_entries()` = `parse_entries()`; `@dataclass Sample(path: str, file_type: str, name: str, sha256: str, chars: int, text: str)`; `_make_client() -> httpx.Client` returning `httpx.Client(timeout=30.0, follow_redirects=True)`; `fetch_corpus(entries, dest_dir="samples", fresh=False) -> list[Sample]` — per entry, dest = `Path(dest_dir)/entry.file_type/entry.name`; if dest exists and not fresh, read cached bytes, else `client.get(entry.url)`, `raise_for_status()`, mkdir parents, write bytes; then `text = data.decode("utf-8")`, `Sample(str(dest), entry.file_type, entry.name, hashlib.sha256(data).hexdigest(), len(text), text)`; return samples in entry order.
-- [ ] **Step 4: run tests, expect pass.** `PYTHONPATH=src .venv/bin/python -m unittest tests.test_corpus -v` → 7 tests OK; then the full plan-A suite `PYTHONPATH=src .venv/bin/python -m unittest tests.test_scaffolding tests.test_secretspec tests.test_corpus_data tests.test_corpus` → all OK.
+- [ ] **Step 3: implement.** Create `src/tokencount/__init__.py` (empty) and `src/tokencount/corpus.py` with exactly the contract signatures: `@dataclass CorpusEntry(file_type: str, name: str, url: str, repo: str|None, sha: str|None, path: str|None)`; module constants `REPO_ROOT = Path(__file__).resolve().parents[2]`, `EU_MEMBERS_FILE = REPO_ROOT / "corpus" / "eu-members.txt"`, `REPOS_FILE = REPO_ROOT / "corpus" / "repos.txt"`; `parse_entries(members_path=EU_MEMBERS_FILE, repos_path=REPOS_FILE) -> list[CorpusEntry]` (skip blank/`#` lines; 3 fields → member entry with repo/sha/path None; 5 fields → repo entry with `url = f"https://raw.githubusercontent.com/{repo}/{sha}/{path}"`; any other field count raises `ValueError`); `load_entries()` = `parse_entries()`; `@dataclass Sample(path: str, file_type: str, name: str, sha256: str, chars: int, text: str)`; `_make_client() -> httpx.Client` returning `httpx.Client(timeout=30.0, follow_redirects=True)`; `fetch_corpus(entries, dest_dir="samples", fresh=False) -> list[Sample]` — per entry, dest = `Path(dest_dir)/entry.file_type/entry.name`; if dest exists and not fresh, read cached bytes, else `client.get(entry.url)`, `raise_for_status()` (a failed fetch raises — pinned by `test_http_error_raises`, so plans B/C must not expect a partial sample list from a failed URL), mkdir parents, write bytes to a `<dest>.part` temp file then `os.replace` onto dest (atomic: an interrupted fetch never leaves a partial cached file that a later run would silently reuse), then `text = data.decode("utf-8")`, `Sample(str(dest), entry.file_type, entry.name, hashlib.sha256(data).hexdigest(), len(text), text)`; return samples in entry order.
+- [ ] **Step 4: run tests, expect pass.** `PYTHONPATH=src .venv/bin/python -m unittest tests.test_corpus -v` → 8 tests OK; then the full plan-A suite `PYTHONPATH=src .venv/bin/python -m unittest tests.test_scaffolding tests.test_secretspec tests.test_corpus_data tests.test_corpus` → all OK.
 - [ ] **Step 5: commit.** `git add src tests/test_corpus.py && git commit -m "feat: tokencount.corpus load_entries/fetch_corpus with tests"`
 
 ### Task 5: README.md setup section
@@ -422,6 +445,16 @@
 - [ ] **Step 3: implement.** Extend `README.md` (keep the existing title/tagline) with a **Setup** section: prerequisites (`uv`, Python from `.python-version`, `sops` + an `age` identity for secrets); step 1 `./devenv.sh` (creates `.venv`, `.venv-api`, `.venv-deepseek`, `.venv-mistral` from pinned requirements; warns if `sops`/age identity missing); step 2 secrets once per machine — `age-keygen` into `~/.config/age/key.txt` with `SOPS_AGE_KEY_FILE` exported, public recipient in `.sops.yaml`, `secrets.enc.yaml` created with sops, then `secretspec set OPENAI_API_KEY --provider sops://secrets.enc.yaml` (likewise ANTHROPIC_API_KEY, GOOGLE_API_KEY, Z_AI_API_KEY, MOONSHOT_API_KEY) and `secretspec check`; note that the provider chain `["sops","env"]` falls back to environment variables and every key is optional (`missing key <ENV>` per model, never an abort); step 3 run: `PYTHONPATH=src .venv/bin/python -m tokencount`. Add a **Corpus** note (data files `corpus/eu-members.txt` + `corpus/repos.txt` are the committed source of truth; files fetched live into gitignored `samples/`, cached unless `--fresh`; results key on sha256) and a **Tests** section listing `PYTHONPATH=src .venv/bin/python -m unittest tests.test_corpus tests.test_table`, `.venv-api/bin/python -m unittest tests.test_counters`, `.venv-deepseek/bin/python -m unittest tests.test_counters`.
 - [ ] **Step 4: run tests, expect pass.** `PYTHONPATH=src .venv/bin/python -m unittest tests.test_scaffolding tests.test_secretspec tests.test_corpus_data tests.test_corpus -v` → all OK including `TestReadme`.
 - [ ] **Step 5: commit.** `git add README.md tests/test_scaffolding.py && git commit -m "docs: README setup and run instructions"`
+
+## Verification and validation
+
+Success criteria: from the repo root, `PYTHONPATH=src .venv/bin/python -m unittest tests.test_scaffolding tests.test_secretspec tests.test_corpus_data tests.test_corpus -v` passes in the base `.venv` (the `TestSecretspecSdk` test included; it skips only under a python without the secretspec SDK), `bash -n devenv.sh` exits 0, and `./devenv.sh` creates exactly `.venv`, `.venv-api`, `.venv-deepseek`, `.venv-mistral`.
+
+- Scaffolding: re-running the four Task 1 stdin `uv pip compile - --python-version 3.14 -o requirements/<route>.txt` commands reproduces files that still satisfy the pinned-line test; `requirements/base.txt` pins `httpx==` and `secretspec==0.21.` (0.21.1 on PyPI as of 2026-11-24, verified by resolving the pin with uv 0.12.17). All four compiles were executed with uv 0.12.17 on 2026-11-24 and emit zero environment-marker lines, so the `name==version` regex holds.
+- Secrets schema: `tests.test_secretspec` proves the manifest twice — tomllib shape and the installed SDK's value-free `SecretSpec.builder().with_path("secretspec.toml").with_reason(...).report()` listing exactly the five keys with `required = false`. On a machine with an age identity: create the real nested `secrets.enc.yaml`, `secretspec set` each of the five keys, and `secretspec check --no-prompt` exits 0 without printing values.
+- Corpus data and URLs: `tests.test_corpus_data` pins 27 member lines + 5 repo lines; `tests.test_corpus` pins `load_entries()` → 32 entries with file types exactly {text, python, javascript, shell, rust, go}. URL reachability was verified 2026-11-24 (all 27 Wikipedia URLs HTTP 200; all 5 raw.githubusercontent.com URLs at the recorded shas HTTP 200, paths confirmed via the git/trees API); re-run the Task 3 curl checks at execution time and refresh the HEAD sha if it moved (morluto/rea HEAD had moved to `e6bf4af1c913dd1b3d04c632298c6db045f1e95f` on 2026-11-24; the recorded `b8dd2c47...` pin still serves the sample path).
+- Fetch contract: mock-transport tests pin cache reuse (no HTTP on hit), `--fresh` re-download, sha256-over-bytes vs chars-over-decoded-text, the repo-entry raw URL field order, and that a failed fetch raises `httpx.HTTPStatusError`; cached files are written atomically (`.part` + `os.replace`).
+- Env checks: `devenv.sh` warns (never aborts) when `sops`, the `secretspec` CLI, or an age identity is missing — the CLI comes from `https://install.secretspec.dev`, not the pip wheel.
 
 ## Handoff
 
