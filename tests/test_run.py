@@ -216,3 +216,27 @@ class TestSecretsGuard(unittest.TestCase):
         import os as _os
         with mock.patch.dict(_os.environ, {}, clear=True):
             self.assertEqual(run.resolve_secrets(dotenv_path="/nonexistent/.env"), {})
+
+
+class TestOfflinePartialRun(unittest.TestCase):
+    def test_missing_key_rows_and_exit_zero(self):
+        def no_network(request):
+            raise AssertionError("no HTTP call expected")
+        counters.TRANSPORT = httpx.MockTransport(no_network)
+        try:
+            with tempfile.TemporaryDirectory() as d:
+                csv_path = os.path.join(d, "results.csv")
+                with mock.patch.object(run, "RESULTS_CSV", csv_path), \
+                     mock.patch.object(run, "load_entries", return_value=[]), \
+                     mock.patch.object(run, "fetch_corpus", fake_corpus), \
+                     mock.patch.dict(os.environ, {}, clear=True):
+                    rc = run.main(["--family", "glm"])
+                self.assertEqual(rc, 0)
+                with open(csv_path, newline="") as f:
+                    rows = list(csv.DictReader(f))
+                self.assertEqual(len(rows), 3)
+                for r in rows:
+                    self.assertEqual(r["tokens"], "")
+                    self.assertEqual(r["note"], "missing key Z_AI_API_KEY")
+        finally:
+            counters.TRANSPORT = None
