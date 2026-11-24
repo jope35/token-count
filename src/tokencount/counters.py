@@ -9,8 +9,8 @@ STRATEGY_KEY_ENV = {
     "openai_api": "OPENAI_API_KEY",
     "anthropic_api": "ANTHROPIC_API_KEY",
     "google_api": "GOOGLE_API_KEY",
-    "zai_api": "ZAI_API_KEY",
-    "kimi_api": "KIMI_API_KEY",
+    "zai_api": "Z_AI_API_KEY",
+    "kimi_api": "MOONSHOT_API_KEY",
 }
 
 TRANSPORT = None
