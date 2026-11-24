@@ -13,6 +13,7 @@ STRATEGY_KEY_ENV = {
 
 TRANSPORT = None
 RETRY_WAIT_SECONDS = 1
+RETRY_ATTEMPTS = 5
 CALL_DELAY_SECONDS = 0.1
 _BASELINE_CACHE = {}
 
@@ -29,8 +30,9 @@ class UnsupportedModelError(Exception):
 
 def _post_json(url: str, *, headers: dict, payload: dict, params: dict = None) -> dict:
     retrying = Retrying(
-        stop=stop_after_attempt(3),
+        stop=stop_after_attempt(RETRY_ATTEMPTS),
         wait=wait_fixed(RETRY_WAIT_SECONDS),
+        reraise=True,
         retry=retry_if_exception(
             lambda e: isinstance(e, httpx.HTTPStatusError)
             and e.response.status_code == 429

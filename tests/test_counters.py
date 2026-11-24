@@ -168,6 +168,32 @@ class TestApiStrategies(CounterTestCase):
         self.assertEqual(counters.count_tokens("openai_api", "m", "x", key="k"), 5)
         self.assertEqual(state["n"], 3)
 
+    def test_429_succeeds_on_fifth_attempt(self):
+        self.assertEqual(counters.RETRY_ATTEMPTS, 5)
+        state = {"n": 0}
+
+        def handler(request):
+            state["n"] += 1
+            if state["n"] < 5:
+                return httpx.Response(429, json={"error": "rate limited"})
+            return httpx.Response(200, json={"input_tokens": 5})
+
+        use_mock(handler)
+        self.assertEqual(counters.count_tokens("openai_api", "m", "x", key="k"), 5)
+        self.assertEqual(state["n"], 5)
+
+    def test_429_gives_up_after_retry_attempts(self):
+        state = {"n": 0}
+
+        def handler(request):
+            state["n"] += 1
+            return httpx.Response(429, json={"error": "rate limited"})
+
+        use_mock(handler)
+        with self.assertRaises(httpx.HTTPStatusError):
+            counters.count_tokens("openai_api", "m", "x", key="k")
+        self.assertEqual(state["n"], counters.RETRY_ATTEMPTS)
+
     def test_400_maps_to_unsupported_model(self):
         def handler(request):
             return httpx.Response(400, json={"error": {"message": "unknown model"}})
