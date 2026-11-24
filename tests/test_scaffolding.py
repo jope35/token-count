@@ -65,7 +65,7 @@ class TestReadme(unittest.TestCase):
             "uv sync",
             "uv.lock",
             "PYTHONPATH=src .venv/bin/python -m tokencount",
-            "fetch_corpus(load_entries())",
+            "unittest discover -s tests",
             ".env.example",
             "OPENAI_API_KEY",
         ]:

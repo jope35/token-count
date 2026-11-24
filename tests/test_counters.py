@@ -239,6 +239,7 @@ class LiveTestCase(unittest.TestCase):
 
 
 def live_key(strategy):
+    # process env only: a local .env must not turn every test run into live API calls
     return os.environ.get(counters.STRATEGY_KEY_ENV[strategy])
 
 
