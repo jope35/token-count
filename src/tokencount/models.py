@@ -16,7 +16,7 @@ _FAMILIES = {
     "openai": (
         "openai_api",
         "OPENAI_API_KEY",
-        ["gpt-6.2-astra", "gpt-6.2-sol", "gpt-6.1-terra", "gpt-6.1-luna"],
+        ["gpt-6.2-astra", "gpt-6.2-sol", "gpt-6.1-terra", "gpt-6-luna"],
     ),
     "anthropic": (
         "anthropic_api",
