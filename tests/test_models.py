@@ -38,6 +38,7 @@ KNOWN_STRATEGIES = {
     "zai_api",
     "kimi_api",
     "hf_local",
+    "kimi_local",
 }
 
 
@@ -45,9 +46,9 @@ class TestRegistry(unittest.TestCase):
     def test_unique_model_ids_and_count(self):
         ids = [m.model for m in REGISTRY]
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(len(REGISTRY), 23)
+        self.assertEqual(len(REGISTRY), 27)
 
-    def test_hf_local_families(self):
+    def test_local_families(self):
         self.assertEqual(
             [m.model for m in models_for_family("deepseek")],
             ["deepseek-flash", "deepseek-v4-pro"],
@@ -60,11 +61,24 @@ class TestRegistry(unittest.TestCase):
             [m.model for m in models_for_family("glm_local")],
             ["glm-5.3", "glm-5.3-flash"],
         )
+        self.assertEqual(
+            [m.model for m in models_for_family("kimi_local")],
+            [
+                "kimi-k3.1-pro-local",
+                "kimi-k3-local",
+                "kimi-k2.7-code-local",
+                "kimi-k2.6-local",
+            ],
+        )
         for m in REGISTRY:
             if m.strategy == "hf_local":
                 self.assertIsNone(m.key_env)
                 self.assertTrue(m.tokenizer_file.startswith("tokenizers/"))
                 self.assertTrue(os.path.exists(m.tokenizer_file))
+            if m.strategy == "kimi_local":
+                self.assertIsNone(m.key_env)
+                self.assertTrue(m.tokenizer_file.startswith("tokenizers/"))
+                self.assertTrue(os.path.isdir(m.tokenizer_file))
 
     def test_families_strategies_keys_models(self):
         for family, (strategy, key_env, models) in EXPECTED.items():

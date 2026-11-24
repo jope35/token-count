@@ -16,6 +16,8 @@ except ImportError:
 try:
     import tiktoken
 
+    from tokencount import kimi
+
     HAS_TIKTOKEN = True
 except ImportError:
     HAS_TIKTOKEN = False
@@ -28,6 +30,15 @@ EXPECTED_HF_LOCAL = {
     "tokenizers/mistral-small-2603.json": 21,
     "tokenizers/mistral-medium-3-5.json": 21,
 }
+# keyed by tokenizer_file dir; verified against tiktoken 0.14.0 on the
+# vendored files: the same 15 ids on all four (plain-text ids are identical)
+EXPECTED_KIMI_LOCAL = {
+    "tokenizers/kimi-k3.1-pro": 15,
+    "tokenizers/kimi-k3": 15,
+    "tokenizers/kimi-k2.7-code": 15,
+    "tokenizers/kimi-k2.6": 15,
+}
+KIMI_LOCAL_MISSING = not all(os.path.isdir(d) for d in EXPECTED_KIMI_LOCAL)
 
 
 def use_mock(handler):
@@ -214,6 +225,10 @@ class TestApiStrategies(CounterTestCase):
         with self.assertRaises(ValueError):
             counters.count_tokens("hf_local", "m", "x")
 
+    def test_kimi_local_requires_tokenizer_file(self):
+        with self.assertRaises(ValueError):
+            counters.count_tokens("kimi_local", "m", "x")
+
 
 @unittest.skipUnless(HAS_TOKENIZERS, "needs tokenizers")
 class TestHfLocal(unittest.TestCase):
@@ -252,6 +267,44 @@ class TestHfLocal(unittest.TestCase):
                 # current files use a ByteLevel post-processor that adds no
                 # specials; a future TemplateProcessing file must fail visibly
                 self.assertEqual(raw, wrapped)
+
+
+@unittest.skipUnless(
+    HAS_TIKTOKEN and not KIMI_LOCAL_MISSING, "needs tiktoken and vendored kimi dirs"
+)
+class TestKimiLocal(unittest.TestCase):
+    def test_kimi_local_known_vectors(self):
+        for path, expected in EXPECTED_KIMI_LOCAL.items():
+            with self.subTest(path=path):
+                self.assertEqual(
+                    counters.count_tokens(
+                        "kimi_local", "x", KNOWN_STRING, tokenizer_file=path
+                    ),
+                    expected,
+                )
+
+    def test_kimi_local_end_of_msg_on_k3_line(self):
+        # K3/K3.1-Pro config has <|end_of_msg|> at id 163586; it must encode
+        # as exactly that one special id
+        for path in ("tokenizers/kimi-k3", "tokenizers/kimi-k3.1-pro"):
+            with self.subTest(path=path):
+                enc = kimi.load_encoding(path)
+                self.assertEqual(
+                    enc.encode("<|end_of_msg|>", allowed_special="all"), [163586]
+                )
+
+    def test_kimi_local_im_end_on_k2_line(self):
+        # K2.6/K2.7-Code config has <|im_end|> at id 163586 and no
+        # <|end_of_msg|>, which must fall back to multiple plain ids
+        for path in ("tokenizers/kimi-k2.6", "tokenizers/kimi-k2.7-code"):
+            with self.subTest(path=path):
+                enc = kimi.load_encoding(path)
+                self.assertEqual(
+                    enc.encode("<|im_end|>", allowed_special="all"), [163586]
+                )
+                self.assertGreater(
+                    len(enc.encode("<|end_of_msg|>", allowed_special="all")), 1
+                )
 
 
 @unittest.skipUnless(HAS_TIKTOKEN, "needs tiktoken")
