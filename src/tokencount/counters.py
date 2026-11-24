@@ -47,7 +47,7 @@ def _count_openai_api(model_id: str, text: str, key: str) -> int:
     url = "https://api.openai.com/v1/responses/input_tokens"
     headers = {"Authorization": f"Bearer {key}"}
     payload = {"model": model_id, "input": text}
-    response = _post_json(url, headers=headers, payload=payload, params={"key": key})
+    response = _post_json(url, headers=headers, payload=payload)
     return response["input_tokens"]
 
 def _count_anthropic_api(model_id: str, text: str, key: str) -> int:
@@ -60,7 +60,7 @@ def _count_anthropic_api(model_id: str, text: str, key: str) -> int:
         "model": model_id,
         "messages": [{"role": "user", "content": text}],
     }
-    response = _post_json(url, headers=headers, payload=payload, params={"key": key})
+    response = _post_json(url, headers=headers, payload=payload)
     return response["input_tokens"]
 
 def _count_google_api(model_id: str, text: str, key: str) -> int:
