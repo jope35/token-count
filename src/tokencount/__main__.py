@@ -1,3 +1,5 @@
+import sys
+
 from tokencount.run import main
 
 if __name__ == "__main__":
