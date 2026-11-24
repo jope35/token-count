@@ -72,6 +72,7 @@ class TestRenderResults(unittest.TestCase):
 class TestWorker(unittest.TestCase):
     def run_worker(self, family, csv_path, fresh=False, env=None):
         with (
+            mock.patch.object(run, "RESULTS_CSV", csv_path),
             mock.patch.object(run, "load_entries", return_value=[]),
             mock.patch.object(run, "fetch_corpus", fake_corpus),
             mock.patch.dict(os.environ, env or {}, clear=True),
@@ -214,6 +215,49 @@ class TestWorker(unittest.TestCase):
             )
             rc, ct = self.run_worker("openai", csv_path, env={"OPENAI_API_KEY": "k"})
             self.assertEqual(ct.call_count, 3)  # the torn row's model is recounted
+
+    def test_local_family_worker_runs_sequentially(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "pending", "deepseek.csv")
+            rc, ct = self.run_worker("deepseek", csv_path, env={})
+            self.assertEqual(rc, 0)
+            self.assertEqual(ct.call_count, 2)  # 2 deepseek models x 1 sample
+            rows = self.read_rows(csv_path)
+            self.assertEqual(len(rows), 2)
+            self.assertEqual({r["model"] for r in rows}, {"deepseek-flash", "deepseek-v4-pro"})
+            self.assertTrue(all(r["tokens"] == "7" and r["note"] == "" for r in rows))
+
+    def test_worker_fetches_corpus_with_show_progress_false(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            with (
+                mock.patch.object(run, "RESULTS_CSV", csv_path),
+                mock.patch.object(run, "load_entries", return_value=[]),
+                mock.patch.object(run, "fetch_corpus", return_value=[SAMPLE]) as fc,
+                mock.patch.dict(os.environ, {"OPENAI_API_KEY": "k"}, clear=True),
+                mock.patch("tokencount.counters.count_tokens", return_value=7),
+            ):
+                run.run_worker("openai", results_csv=csv_path)
+            self.assertEqual(fc.call_args.kwargs.get("show_progress"), False)
+
+    def test_worker_bar_kwargs(self):
+        with tempfile.TemporaryDirectory() as d:
+            csv_path = os.path.join(d, "results.csv")
+            with (
+                mock.patch.object(run, "RESULTS_CSV", csv_path),
+                mock.patch.object(run, "load_entries", return_value=[]),
+                mock.patch.object(run, "fetch_corpus", fake_corpus),
+                mock.patch.dict(os.environ, {"OPENAI_API_KEY": "k"}, clear=True),
+                mock.patch("tokencount.counters.count_tokens", return_value=7),
+                mock.patch.object(run, "tqdm", side_effect=lambda it, **kw: it) as tq,
+            ):
+                run.run_worker("openai", results_csv=csv_path, bar_position=3)
+            tq.assert_called_once()
+            kw = tq.call_args.kwargs
+            self.assertEqual(
+                (kw["desc"], kw["unit"], kw["position"], kw["leave"], kw["disable"]),
+                ("openai", "pair", 3, True, None),
+            )
 
 
 class TestOrchestrator(unittest.TestCase):

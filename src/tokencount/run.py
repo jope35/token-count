@@ -2,7 +2,11 @@ import argparse
 import csv
 import os
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
+from functools import partial
+
+from tqdm import tqdm
 
 from tokencount import counters, table
 from tokencount.corpus import fetch_corpus, load_entries
@@ -21,6 +25,8 @@ CSV_COLUMNS = [
     "note",
 ]
 RESULTS_CSV = "results/results.csv"
+PENDING_DIR = "results/pending/"
+API_CONCURRENCY = 4
 
 SECRET_KEYS = sorted({m.key_env for m in REGISTRY if m.key_env})
 
@@ -120,32 +126,47 @@ def count_sample(model, sample, key) -> tuple:
         return "", f"error: {e}"
 
 
-def run_worker(family: str, fresh: bool = False, results_csv: str = None) -> int:
+def _count_one(item, key) -> dict:
+    model, sample = item
+    tokens, note = count_sample(model, sample, key)
+    return {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "provider": model.provider,
+        "model": model.model,
+        "strategy": model.strategy,
+        "file": sample.path,
+        "file_type": sample.file_type,
+        "sha256": sample.sha256,
+        "chars": str(sample.chars),
+        "tokens": tokens,
+        "note": note,
+    }
+
+
+def run_worker(
+    family: str, fresh: bool = False, results_csv: str = None, bar_position: int = 0
+) -> int:
     csv_path = results_csv or RESULTS_CSV
-    samples = fetch_corpus(load_entries(), fresh=fresh)
-    deduped = set() if fresh else read_dedup_keys(csv_path)
+    samples = fetch_corpus(load_entries(), fresh=fresh, show_progress=False)
+    # dedup reads the main results.csv, not the pending write target
+    deduped = set() if fresh else read_dedup_keys(RESULTS_CSV)
     models = models_for_family(family)
     key = os.environ.get(models[0].key_env) if models[0].key_env else None
-    for model in models:
-        for sample in samples:
-            if (model.model, model.strategy, sample.path, sample.sha256) in deduped:
-                continue
-            tokens, note = count_sample(model, sample, key)
-            append_row(
-                csv_path,
-                {
-                    "timestamp": datetime.now(timezone.utc).isoformat(),
-                    "provider": model.provider,
-                    "model": model.model,
-                    "strategy": model.strategy,
-                    "file": sample.path,
-                    "file_type": sample.file_type,
-                    "sha256": sample.sha256,
-                    "chars": str(sample.chars),
-                    "tokens": tokens,
-                    "note": note,
-                },
-            )
+    items = [
+        (model, sample)
+        for model in models
+        for sample in samples
+        if (model.model, model.strategy, sample.path, sample.sha256) not in deduped
+    ]
+    bar = dict(desc=family, unit="pair", position=bar_position, leave=True, disable=None)
+    if models[0].strategy == "hf_local":
+        for item in tqdm(items, **bar):
+            append_row(csv_path, _count_one(item, key))
+    else:
+        # only the main thread appends rows, so append_row needs no lock
+        with ThreadPoolExecutor(max_workers=API_CONCURRENCY) as pool:
+            for row in tqdm(pool.map(partial(_count_one, key=key), items), **bar):
+                append_row(csv_path, row)
     return 0
 
 
@@ -157,10 +178,17 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(prog="tokencount")
     parser.add_argument("--family")
     parser.add_argument("--fresh", action="store_true")
+    parser.add_argument("--results-csv", default=None)
+    parser.add_argument("--bar-position", type=int, default=0)
     args = parser.parse_args(argv)
 
     if args.family:
-        return run_worker(args.family, fresh=args.fresh)
+        return run_worker(
+            args.family,
+            fresh=args.fresh,
+            results_csv=args.results_csv,
+            bar_position=args.bar_position,
+        )
 
     secrets = resolve_secrets()
     fetch_corpus(load_entries(), fresh=args.fresh)
