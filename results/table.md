@@ -1,0 +1,25 @@
+| model | text | python | javascript | shell | rust | go | Total |
+|---|---|---|---|---|---|---|---|
+| gpt-6.2-astra | key | key | key | key | key | key | 0 |
+| gpt-6.2-sol | key | key | key | key | key | key | 0 |
+| gpt-6.1-terra | key | key | key | key | key | key | 0 |
+| gpt-6.1-luna | key | key | key | key | key | key | 0 |
+| claude-fable-5-2 | key | key | key | key | key | key | 0 |
+| claude-opus-5-5 | key | key | key | key | key | key | 0 |
+| claude-sonnet-5-5 | key | key | key | key | key | key | 0 |
+| claude-haiku-5-5 | key | key | key | key | key | key | 0 |
+| gemini-4-neon | key | key | key | key | key | key | 0 |
+| gemini-4-hydrogen | key | key | key | key | key | key | 0 |
+| gemini-4-carbon | key | key | key | key | key | key | 0 |
+| glm-5.4 | key | key | key | key | key | key | 0 |
+| glm-5.3 | key | key | key | key | key | key | 0 |
+| glm-5.3-flash | key | key | key | key | key | key | 0 |
+| kimi-k3.1-pro | key | key | key | key | key | key | 0 |
+| kimi-k3 | key | key | key | key | key | key | 0 |
+| kimi-k2.7-code | key | key | key | key | key | key | 0 |
+| kimi-k2.6 | key | key | key | key | key | key | 0 |
+| deepseek-flash | 32123954 | 4360 | 7202 | 1380 | 1206 | 9178 | 32147280 |
+| deepseek-v4-pro | 32123954 | 4360 | 7202 | 1380 | 1206 | 9178 | 32147280 |
+| mistral-large-4 | 30842733 | 4144 | 6946 | 1332 | 1138 | 9130 | 30865423 |
+| mistral-small-2603 | 35002046 | 4352 | 7030 | 1352 | 1174 | 9076 | 35025030 |
+| mistral-medium-3-5 | 35002046 | 4352 | 7030 | 1352 | 1174 | 9076 | 35025030 |
