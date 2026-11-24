@@ -1,7 +1,5 @@
-import contextlib
 import csv
 import hashlib
-import io
 import os
 import subprocess
 import tempfile

@@ -5,7 +5,7 @@ import subprocess
 from datetime import datetime, timezone
 
 from tokencount import counters
-from tokencount.corpus import CorpusEntry, Sample, fetch_corpus, load_entries
+from tokencount.corpus import fetch_corpus, load_entries
 from tokencount.models import REGISTRY, models_for_family
 
 CSV_COLUMNS = ["timestamp", "provider", "model", "strategy", "file", "file_type", "sha256", "chars", "tokens", "note"]
@@ -103,8 +103,9 @@ def run_worker(family: str, fresh: bool = False, results_csv: str = None) -> int
     csv_path = results_csv or RESULTS_CSV
     samples = fetch_corpus(load_entries(), fresh=fresh)
     deduped = set() if fresh else read_dedup_keys(csv_path)
-    key = os.environ.get(models_for_family(family)[0].key_env)
-    for model in models_for_family(family):
+    models = models_for_family(family)
+    key = os.environ.get(models[0].key_env)
+    for model in models:
         for sample in samples:
             if (model.model, model.strategy, sample.path, sample.sha256) in deduped:
                 continue

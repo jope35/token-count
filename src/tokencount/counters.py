@@ -1,9 +1,7 @@
-import json
 import time
-from typing import Optional
 
 import httpx
-from tenacity import Retrying, stop_after_attempt, wait_fixed, retry_if_exception, retry_if_exception_type
+from tenacity import Retrying, retry_if_exception, stop_after_attempt, wait_fixed
 
 STRATEGY_KEY_ENV = {
     "openai_api": "OPENAI_API_KEY",
@@ -30,7 +28,7 @@ def _post_json(url: str, *, headers: dict, payload: dict, params: dict = None) -
     retrying = Retrying(
         stop=stop_after_attempt(3),
         wait=wait_fixed(RETRY_WAIT_SECONDS),
-        retry=retry_if_exception(lambda e: isinstance(e, httpx.HTTPStatusError) and e.response.status_code == 429) | retry_if_exception_type(httpx.HTTPStatusError),
+        retry=retry_if_exception(lambda e: isinstance(e, httpx.HTTPStatusError) and e.response.status_code == 429),
     )
     
     with httpx.Client(transport=TRANSPORT) as client:
@@ -90,28 +88,27 @@ def _count_kimi_api(model_id: str, text: str, key: str) -> int:
     response = _post_json(url, headers=headers, payload=payload)
     return response["data"]["total_tokens"]
 
+_COUNTERS = {
+    "openai_api": _count_openai_api,
+    "anthropic_api": _count_anthropic_api,
+    "google_api": _count_google_api,
+    "zai_api": _count_zai_api,
+    "kimi_api": _count_kimi_api,
+}
+
+
 def baseline_tokens(strategy: str, model_id: str, key: str) -> int:
     if strategy in ("openai_api", "google_api"):
         return 0
     cache_key = (strategy, model_id)
-    if cache_key in _BASELINE_CACHE:
-        return _BASELINE_CACHE[cache_key]
-    
-    if strategy == "anthropic_api":
-        raw = _count_anthropic_api(model_id, "x", key)
-    elif strategy == "zai_api":
-        raw = _count_zai_api(model_id, "x", key)
-    elif strategy == "kimi_api":
-        raw = _count_kimi_api(model_id, "x", key)
-    else:
-        raise ValueError(f"Unknown strategy: {strategy}")
-    
-    baseline = raw - 1
-    _BASELINE_CACHE[cache_key] = baseline
-    return baseline
+    if cache_key not in _BASELINE_CACHE:
+        # probe a 1-char user message; subtract its own token
+        _BASELINE_CACHE[cache_key] = _COUNTERS[strategy](model_id, "x", key) - 1
+    return _BASELINE_CACHE[cache_key]
+
 
 def count_tokens(
-    strategy: str, model_id: str, text: str, key: Optional[str] = None, tokenizer_file: Optional[str] = None
+    strategy: str, model_id: str, text: str, key: str | None = None, tokenizer_file: str | None = None
 ) -> int:
     if strategy == "hf_local":
         raise ValueError("hf_local is not supported in this task")
@@ -120,17 +117,4 @@ def count_tokens(
         raise MissingKeyError(STRATEGY_KEY_ENV[strategy])
 
     baseline = baseline_tokens(strategy, model_id, key)
-    if strategy == "openai_api":
-        raw = _count_openai_api(model_id, text, key)
-    elif strategy == "anthropic_api":
-        raw = _count_anthropic_api(model_id, text, key)
-    elif strategy == "google_api":
-        raw = _count_google_api(model_id, text, key)
-    elif strategy == "zai_api":
-        raw = _count_zai_api(model_id, text, key)
-    elif strategy == "kimi_api":
-        raw = _count_kimi_api(model_id, text, key)
-    else:
-        raise ValueError(f"Unknown strategy: {strategy}")
-
-    return raw - baseline
+    return _COUNTERS[strategy](model_id, text, key) - baseline
