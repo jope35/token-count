@@ -14,6 +14,8 @@ This tool counts, for every supported model, how many tokens that model's tokeni
 
 The run downloads the corpus into `samples/` (cached unless `--fresh` is given), counts every (model, file) pair, appends rows to `results/results.csv`, and writes `results/table.md`. Run it again with `--fresh` to re-download the corpus and recount everything. A rerun without `--fresh` adds no new rows for unchanged files.
 
+The run uses two paths. A family is one provider's group of models. The 5 API families run in parallel as separate processes, and each process counts its pairs through a pool of 4 (`API_CONCURRENCY`). The local deepseek and mistral families run one at a time afterwards. Each worker appends rows only to its own `results/pending/<family>.csv` (gitignored); after all workers finish, the orchestrator appends those pending files into `results/results.csv`. tqdm shows a corpus-fetch bar and one bar per family. With `--family <name>` the tool runs a single worker that writes `results/results.csv` directly.
+
 The five DeepSeek and Mistral models are counted offline from the committed tokenizer files in `tokenizers/`, so they need no API key and work without network access once `samples/` is cached. The 18 API models need keys (see below); without a key their table cells render `key` instead of a number.
 
 ## Secrets
