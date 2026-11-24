@@ -5,6 +5,9 @@ changes: .venv/bin/python scripts/fetch_tokenizers.py
 Stdlib only; no huggingface-hub. Mistral repos also ship tekken.json
 (mistral-common format, not loadable by the tokenizers library), so we vendor
 their HF-format tokenizer.json at the same pinned revision.
+
+The Kimi models (kimi_local) ship tiktoken.model (base64 BPE, not JSON) plus
+tokenizer_config.json, vendored per model into tokenizers/<local_name>/.
 """
 
 import hashlib
@@ -46,6 +49,33 @@ TOKENIZERS = [
     ),
 ]
 
+# Kimi local models: local name, HF repo, pinned revision sha. Each repo ships
+# every file in KIMI_FILES at the same pinned revision; files land in a
+# per-model directory tokenizers/<local_name>/.
+KIMI_TOKENIZERS = [
+    (
+        "kimi-k3.1-pro",
+        "moonshotai/Kimi-K3.1-Pro",
+        "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    ),
+    (
+        "kimi-k3",
+        "moonshotai/Kimi-K3",
+        "c7945ea0e737dcaddd22c68ddb7639b1407c081c",
+    ),
+    (
+        "kimi-k2.7-code",
+        "moonshotai/Kimi-K2.7-Code",
+        "74797c9c62378b951a1f6fcf5c4631024e9b8bef",
+    ),
+    (
+        "kimi-k2.6",
+        "moonshotai/Kimi-K2.6",
+        "7eb5002f6aadc958aed6a9177b7ed26bb94011bb",
+    ),
+]
+KIMI_FILES = ["tiktoken.model", "tokenizer_config.json"]
+
 
 def main() -> None:
     out_dir = os.path.join(os.path.dirname(__file__), "..", "tokenizers")
@@ -59,6 +89,19 @@ def main() -> None:
         with open(path, "wb") as f:
             f.write(data)
         print(path, len(data), hashlib.sha256(data).hexdigest())
+    for local_name, repo, sha in KIMI_TOKENIZERS:
+        model_dir = os.path.join(out_dir, local_name)
+        os.makedirs(model_dir, exist_ok=True)
+        for hf_file in KIMI_FILES:
+            url = f"https://huggingface.co/{repo}/resolve/{sha}/{hf_file}"
+            with urllib.request.urlopen(url) as response:
+                data = response.read()
+            if hf_file.endswith(".json"):
+                json.loads(data)  # must be valid JSON; tiktoken.model is base64 BPE
+            path = os.path.join(model_dir, hf_file)
+            with open(path, "wb") as f:
+                f.write(data)
+            print(path, len(data), hashlib.sha256(data).hexdigest())
 
 
 if __name__ == "__main__":

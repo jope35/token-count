@@ -36,7 +36,7 @@ FAMILY_KEY = {
     "glm": "Z_AI_API_KEY",
     "kimi": "MOONSHOT_API_KEY",
 }
-LOCAL_FAMILIES = {"deepseek", "mistral", "glm_local"}
+LOCAL_FAMILIES = {"deepseek", "mistral", "glm_local", "kimi_local"}
 ALL_SECRETS = {k: k.lower() for k in FAMILY_KEY.values()}
 
 
@@ -265,7 +265,9 @@ class TestSplitFamilies(unittest.TestCase):
         families = sorted({m.family for m in run.REGISTRY})
         api, local = run.split_families(families)
         self.assertEqual(set(api), {"openai", "anthropic", "google", "glm", "kimi"})
-        self.assertEqual(set(local), {"deepseek", "mistral", "glm_local"})
+        self.assertEqual(
+            set(local), {"deepseek", "mistral", "glm_local", "kimi_local"}
+        )
 
 
 class TestAggregateResults(unittest.TestCase):
@@ -327,7 +329,7 @@ class TestAggregateResults(unittest.TestCase):
 
 
 class TestOrchestrator(unittest.TestCase):
-    def _run_main(self, argv=None, popen_rcs=(0,) * 5, run_rcs=(0,) * 3):
+    def _run_main(self, argv=None, popen_rcs=(0,) * 5, run_rcs=(0,) * 4):
         calls = []
         popens = []
         runs = []
@@ -364,11 +366,11 @@ class TestOrchestrator(unittest.TestCase):
                 os.chdir(cwd)
         return rc, popens, runs, calls, agg, rr
 
-    def test_popen_five_api_and_run_three_local(self):
+    def test_popen_five_api_and_run_four_local(self):
         rc, popens, runs, calls, agg, rr = self._run_main()
         self.assertEqual(rc, 0)
         self.assertEqual(len(popens), 5)
-        self.assertEqual(len(runs), 3)
+        self.assertEqual(len(runs), 4)
         api_families, positions, pending = set(), set(), []
         for p, cmd, env in popens:
             self.assertEqual(cmd[:3], [".venv/bin/python", "-m", "tokencount"])
@@ -392,7 +394,7 @@ class TestOrchestrator(unittest.TestCase):
             pending.append(f"results/pending/{family}.csv")
             self.assertEqual(set(env), {"PYTHONPATH"})  # local: no key
         self.assertEqual(local_families, LOCAL_FAMILIES)
-        self.assertEqual(len(set(pending)), 8)  # every worker its own file
+        self.assertEqual(len(set(pending)), 9)  # every worker its own file
         self.assertEqual(calls, ["aggregate", "render"])  # aggregate once, before render
         agg.assert_called_once()
         rr.assert_called_once_with()

@@ -16,7 +16,7 @@ The run downloads the corpus into `samples/` (cached unless `--fresh` is given),
 
 The run uses two paths. A family is one provider's group of models. The 5 API families run in parallel as separate processes, and each process counts its pairs through a pool of 4 (`API_CONCURRENCY`). The local deepseek and mistral families run one at a time afterwards. Each worker appends rows only to its own `results/pending/<family>.csv` (gitignored); after all workers finish, the orchestrator appends those pending files into `results/results.csv`. tqdm shows a corpus-fetch bar and one bar per family. With `--family <name>` the tool runs a single worker that writes `results/results.csv` directly.
 
-The five DeepSeek and Mistral models are counted offline from the committed tokenizer files in `tokenizers/`, so they need no API key and work without network access once `samples/` is cached. The 18 API models need keys (see below); without a key their table cells render `key` instead of a number.
+The five DeepSeek and Mistral models and the four local Kimi models are counted offline from the committed tokenizer files in `tokenizers/`, so they need no API key and work without network access once `samples/` is cached. The Kimi models (`kimi-k3.1-pro-local`, `kimi-k3-local`, `kimi-k2.7-code-local`, `kimi-k2.6-local`) are vendored as `tokenizers/<name>/{tiktoken.model,tokenizer_config.json}` and counted with tiktoken via the `kimi_local` strategy. The 16 API models need keys (see below); without a key their table cells render `key` instead of a number.
 
 ## Secrets
 
@@ -61,6 +61,20 @@ Use this for models without a counting endpoint, such as DeepSeek and Mistral. T
 
    ```
    .venv/bin/python -c "from tokenizers import Tokenizer; print(len(Tokenizer.from_file('tokenizers/<name>.json').encode('The quick brown fox jumps over the lazy dog. 0123456789', add_special_tokens=False).ids))"
+   ```
+
+4. Update the registry size pin in `tests/test_models.py` and run the tests.
+
+### Add a local Kimi model (`kimi_local`)
+
+Use this for Kimi models, whose Hugging Face repos ship a tiktoken BPE file instead of a single `tokenizer.json`. The tokenizer is vendored as a directory `tokenizers/<name>/` holding `tiktoken.model` and `tokenizer_config.json`, and counting runs offline with tiktoken.
+
+1. Add one entry (local name, Hugging Face repo, pinned revision sha) to `KIMI_TOKENIZERS` in `scripts/fetch_tokenizers.py`, then run `.venv/bin/python scripts/fetch_tokenizers.py` from the repo root. It vendors `KIMI_FILES` into `tokenizers/<name>/`.
+2. Append a `Model(provider="kimi", model="<name>-local", family="kimi_local", strategy="kimi_local", key_env=None, tokenizer_file="tokenizers/<name>")` row to `REGISTRY` in `src/tokencount/models.py`.
+3. Add the pinned count for the known test string to `EXPECTED_KIMI_LOCAL` in `tests/test_counters.py`. Get the integer with:
+
+   ```
+   PYTHONPATH=src .venv/bin/python -c "from tokencount import kimi; print(kimi.count(kimi.load_encoding('tokenizers/<name>'), 'The quick brown fox jumps over the lazy dog. 0123456789'))"
    ```
 
 4. Update the registry size pin in `tests/test_models.py` and run the tests.

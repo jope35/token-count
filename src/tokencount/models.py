@@ -107,6 +107,38 @@ REGISTRY += [
         key_env=None,
         tokenizer_file="tokenizers/glm-5.3-flash.json",
     ),
+    Model(
+        provider="kimi",
+        model="kimi-k3.1-pro-local",
+        family="kimi_local",
+        strategy="kimi_local",
+        key_env=None,
+        tokenizer_file="tokenizers/kimi-k3.1-pro",
+    ),
+    Model(
+        provider="kimi",
+        model="kimi-k3-local",
+        family="kimi_local",
+        strategy="kimi_local",
+        key_env=None,
+        tokenizer_file="tokenizers/kimi-k3",
+    ),
+    Model(
+        provider="kimi",
+        model="kimi-k2.7-code-local",
+        family="kimi_local",
+        strategy="kimi_local",
+        key_env=None,
+        tokenizer_file="tokenizers/kimi-k2.7-code",
+    ),
+    Model(
+        provider="kimi",
+        model="kimi-k2.6-local",
+        family="kimi_local",
+        strategy="kimi_local",
+        key_env=None,
+        tokenizer_file="tokenizers/kimi-k2.6",
+    ),
 ]
 
 
