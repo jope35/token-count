@@ -7,7 +7,7 @@ class Model:
     model: str
     family: str
     strategy: str
-    key_env: str
+    key_env: str | None
     tokenizer_file: str | None = None
 
 
@@ -47,6 +47,50 @@ REGISTRY = [
     )
     for family, (strategy, key_env, models) in _FAMILIES.items()
     for model in models
+]
+
+# plan C: local families, counted offline from the vendored tokenizer files
+REGISTRY += [
+    Model(
+        provider="deepseek",
+        model="deepseek-flash",
+        family="deepseek",
+        strategy="hf_local",
+        key_env=None,
+        tokenizer_file="tokenizers/deepseek-flash.json",
+    ),
+    Model(
+        provider="deepseek",
+        model="deepseek-v4-pro",
+        family="deepseek",
+        strategy="hf_local",
+        key_env=None,
+        tokenizer_file="tokenizers/deepseek-v4-pro.json",
+    ),
+    Model(
+        provider="mistral",
+        model="mistral-large-4",
+        family="mistral",
+        strategy="hf_local",
+        key_env=None,
+        tokenizer_file="tokenizers/mistral-large-4.json",
+    ),
+    Model(
+        provider="mistral",
+        model="mistral-small-2603",
+        family="mistral",
+        strategy="hf_local",
+        key_env=None,
+        tokenizer_file="tokenizers/mistral-small-2603.json",
+    ),
+    Model(
+        provider="mistral",
+        model="mistral-medium-3-5",
+        family="mistral",
+        strategy="hf_local",
+        key_env=None,
+        tokenizer_file="tokenizers/mistral-medium-3-5.json",
+    ),
 ]
 
 

@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from tokencount.models import REGISTRY, models_for_family
@@ -44,7 +45,22 @@ class TestRegistry(unittest.TestCase):
     def test_unique_model_ids_and_count(self):
         ids = [m.model for m in REGISTRY]
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(len(REGISTRY), 18)
+        self.assertEqual(len(REGISTRY), 23)
+
+    def test_hf_local_families(self):
+        self.assertEqual(
+            [m.model for m in models_for_family("deepseek")],
+            ["deepseek-flash", "deepseek-v4-pro"],
+        )
+        self.assertEqual(
+            [m.model for m in models_for_family("mistral")],
+            ["mistral-large-4", "mistral-small-2603", "mistral-medium-3-5"],
+        )
+        for m in REGISTRY:
+            if m.strategy == "hf_local":
+                self.assertIsNone(m.key_env)
+                self.assertTrue(m.tokenizer_file.startswith("tokenizers/"))
+                self.assertTrue(os.path.exists(m.tokenizer_file))
 
     def test_families_strategies_keys_models(self):
         for family, (strategy, key_env, models) in EXPECTED.items():
