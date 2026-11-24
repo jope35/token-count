@@ -161,7 +161,7 @@ def run_worker(
         if (model.model, model.strategy, sample.path, sample.sha256) not in deduped
     ]
     bar = dict(desc=family, unit="pair", position=bar_position, leave=True, disable=None)
-    if models[0].strategy == "hf_local":
+    if models[0].strategy in counters.LOCAL_STRATEGIES:
         for item in tqdm(items, **bar):
             append_row(csv_path, _count_one(item, key))
     else:
@@ -177,7 +177,7 @@ def split_families(families) -> tuple[list, list]:
     local_families = []
     for family in families:
         # all models of a family share a strategy
-        if models_for_family(family)[0].strategy == "hf_local":
+        if models_for_family(family)[0].strategy in counters.LOCAL_STRATEGIES:
             local_families.append(family)
         else:
             api_families.append(family)

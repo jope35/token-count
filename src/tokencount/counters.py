@@ -11,6 +11,8 @@ STRATEGY_KEY_ENV = {
     "kimi_api": "MOONSHOT_API_KEY",
 }
 
+LOCAL_STRATEGIES = {"hf_local", "kimi_local"}
+
 TRANSPORT = None
 RETRY_WAIT_SECONDS = 1
 RETRY_ATTEMPTS = 5
@@ -139,6 +141,13 @@ def count_tokens(
         tok = Tokenizer.from_file(tokenizer_file)
         # add_special_tokens=False: no post-processor wrapper, no baseline
         return len(tok.encode(text, add_special_tokens=False).ids)
+
+    if strategy == "kimi_local":
+        if tokenizer_file is None:
+            raise ValueError("kimi_local requires tokenizer_file")
+        from tokencount import kimi
+
+        return kimi.count(kimi.load_encoding(tokenizer_file), text)
 
     if key is None:
         raise MissingKeyError(STRATEGY_KEY_ENV[strategy])
