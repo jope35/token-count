@@ -260,6 +260,72 @@ class TestWorker(unittest.TestCase):
             )
 
 
+class TestSplitFamilies(unittest.TestCase):
+    def test_split_families_from_registry(self):
+        families = sorted({m.family for m in run.REGISTRY})
+        api, local = run.split_families(families)
+        self.assertEqual(set(api), {"openai", "anthropic", "google", "glm", "kimi"})
+        self.assertEqual(set(local), {"deepseek", "mistral"})
+
+
+class TestAggregateResults(unittest.TestCase):
+    def _write_pending(self, d, name, rows, torn=None):
+        os.makedirs(os.path.join(d, "results", "pending"), exist_ok=True)
+        p = os.path.join(d, "results", "pending", name)
+        with open(p, "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(run.CSV_COLUMNS)
+            for r in rows:
+                w.writerow(r)
+            if torn:
+                f.write(torn)  # no newline: torn trailing line
+
+    def test_aggregates_sorted_drops_torn_removes_dir(self):
+        with tempfile.TemporaryDirectory() as d:
+            cwd = os.getcwd()
+            os.chdir(d)
+            try:
+                self._write_pending(d, "beta.csv", [[
+                    "2026-11-24T00:00:00+00:00", "kimi", "kimi-k3", "kimi_api",
+                    "samples/text/France", "text", "sha-b", "5", "7", "",
+                ]])
+                self._write_pending(d, "alpha.csv", [[
+                    "2026-11-24T00:00:00+00:00", "openai", "gpt-6.2-astra", "openai_api",
+                    "samples/text/France", "text", "sha-a", "5", "7", "",
+                ], [
+                    "2026-11-24T00:00:01+00:00", "openai", "gpt-6.2-sol", "openai_api",
+                    "samples/text/France", "text", "sha-a", "5", "8", "",
+                ]], torn="2026-11-24T00:00:02+00:00,openai,gpt-6.1-terra")
+                # main CSV already has its header
+                os.makedirs(os.path.join(d, "results"), exist_ok=True)
+                with open("results/results.csv", "w", newline="") as f:
+                    csv.writer(f).writerow(run.CSV_COLUMNS)
+                n = run.aggregate_results()
+                self.assertEqual(n, 3)
+                with open("results/results.csv", newline="") as f:
+                    lines = f.read().splitlines()
+                self.assertEqual(len(lines), 4)  # exactly one header + 3 rows
+                self.assertEqual(lines[0], ",".join(run.CSV_COLUMNS))
+                with open("results/results.csv", newline="") as f:
+                    rows = list(csv.DictReader(f))
+                self.assertEqual([r["model"] for r in rows],
+                                 ["gpt-6.2-astra", "gpt-6.2-sol", "kimi-k3"])  # sorted family order
+                self.assertNotIn("gpt-6.1-terra", [r["model"] for r in rows])  # torn dropped
+                self.assertFalse(os.path.exists("results/pending"))
+            finally:
+                os.chdir(cwd)
+
+    def test_empty_pending_dir_is_a_noop(self):
+        with tempfile.TemporaryDirectory() as d:
+            cwd = os.getcwd()
+            os.chdir(d)
+            try:
+                self.assertEqual(run.aggregate_results(), 0)
+                self.assertFalse(os.path.exists("results/results.csv"))
+            finally:
+                os.chdir(cwd)
+
+
 class TestOrchestrator(unittest.TestCase):
     def test_dispatches_one_subprocess_per_family(self):
         with (

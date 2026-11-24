@@ -1,6 +1,7 @@
 import argparse
 import csv
 import os
+import shutil
 import subprocess
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
@@ -170,6 +171,35 @@ def run_worker(
     return 0
 
 
+def split_families(families) -> tuple[list, list]:
+    api_families = []
+    local_families = []
+    for family in families:
+        # all models of a family share a strategy
+        if models_for_family(family)[0].strategy == "hf_local":
+            local_families.append(family)
+        else:
+            api_families.append(family)
+    return api_families, local_families
+
+
+def aggregate_results(pending_dir=PENDING_DIR, csv_path=RESULTS_CSV) -> int:
+    count = 0
+    if os.path.isdir(pending_dir):
+        for name in sorted(os.listdir(pending_dir)):
+            if not name.endswith(".csv"):
+                continue
+            with open(os.path.join(pending_dir, name), newline="") as f:
+                for row in csv.DictReader(f):
+                    if any(row.get(col) is None for col in CSV_COLUMNS):
+                        continue  # torn trailing line from a killed process
+                    append_row(csv_path, row)
+                    count += 1
+    if os.path.exists(pending_dir):
+        shutil.rmtree(pending_dir)
+    return count
+
+
 def render_results() -> None:
     table.write_table()
 
@@ -191,20 +221,57 @@ def main(argv=None) -> int:
         )
 
     secrets = resolve_secrets()
+    shutil.rmtree(PENDING_DIR, ignore_errors=True)  # wipe stale pending rows
     fetch_corpus(load_entries(), fresh=args.fresh)
     families = sorted({m.family for m in REGISTRY})
+    api_families, local_families = split_families(families)
     returncodes = []
-    for family in families:
+    procs = []
+    for i, family in enumerate(api_families):
         cmd = [
             f"{route_env(family)}/bin/python",
             "-m",
             "tokencount",
             "--family",
             family,
+            "--bar-position",
+            str(i),
+            "--results-csv",
+            os.path.join(PENDING_DIR, f"{family}.csv"),
+        ]
+        if args.fresh:
+            cmd.append("--fresh")
+        procs.append(subprocess.Popen(cmd, env=family_env(family, secrets)))
+    try:
+        for proc in procs:
+            returncodes.append(proc.wait())
+    except KeyboardInterrupt:
+        for proc in procs:
+            if proc.poll() is None:
+                proc.terminate()
+        for proc in procs:
+            try:
+                proc.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+                proc.wait()
+        return 1  # no aggregation, no render; results/results.csv untouched
+    for family in local_families:
+        cmd = [
+            f"{route_env(family)}/bin/python",
+            "-m",
+            "tokencount",
+            "--family",
+            family,
+            "--bar-position",
+            "0",
+            "--results-csv",
+            os.path.join(PENDING_DIR, f"{family}.csv"),
         ]
         if args.fresh:
             cmd.append("--fresh")
         proc = subprocess.run(cmd, env=family_env(family, secrets), check=False)
         returncodes.append(proc.returncode)
+    aggregate_results(PENDING_DIR, RESULTS_CSV)
     render_results()
     return 0 if all(rc == 0 for rc in returncodes) else 1
