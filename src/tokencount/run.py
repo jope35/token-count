@@ -8,7 +8,18 @@ from tokencount import counters
 from tokencount.corpus import fetch_corpus, load_entries
 from tokencount.models import REGISTRY, models_for_family
 
-CSV_COLUMNS = ["timestamp", "provider", "model", "strategy", "file", "file_type", "sha256", "chars", "tokens", "note"]
+CSV_COLUMNS = [
+    "timestamp",
+    "provider",
+    "model",
+    "strategy",
+    "file",
+    "file_type",
+    "sha256",
+    "chars",
+    "tokens",
+    "note",
+]
 RESULTS_CSV = "results/results.csv"
 
 SECRET_KEYS = sorted({m.key_env for m in REGISTRY})
@@ -70,7 +81,11 @@ def read_dedup_keys(csv_path: str) -> set:
             if any(row.get(col) is None for col in CSV_COLUMNS):
                 continue  # torn trailing line from a killed process
             note = row["note"]
-            if _is_numeric(row["tokens"]) or note == "n/a" or note.startswith("missing key "):
+            if (
+                _is_numeric(row["tokens"])
+                or note == "n/a"
+                or note.startswith("missing key ")
+            ):
                 keys.add((row["model"], row["strategy"], row["file"], row["sha256"]))
     return keys
 
@@ -89,7 +104,9 @@ def append_row(csv_path: str, row: dict) -> None:
 
 def count_sample(model, sample, key) -> tuple:
     try:
-        tokens = counters.count_tokens(model.strategy, model.model, sample.text, key=key)
+        tokens = counters.count_tokens(
+            model.strategy, model.model, sample.text, key=key
+        )
         return str(tokens), ""
     except counters.MissingKeyError as e:
         return "", f"missing key {e.env}"
@@ -110,18 +127,21 @@ def run_worker(family: str, fresh: bool = False, results_csv: str = None) -> int
             if (model.model, model.strategy, sample.path, sample.sha256) in deduped:
                 continue
             tokens, note = count_sample(model, sample, key)
-            append_row(csv_path, {
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "provider": model.provider,
-                "model": model.model,
-                "strategy": model.strategy,
-                "file": sample.path,
-                "file_type": sample.file_type,
-                "sha256": sample.sha256,
-                "chars": str(sample.chars),
-                "tokens": tokens,
-                "note": note,
-            })
+            append_row(
+                csv_path,
+                {
+                    "timestamp": datetime.now(timezone.utc).isoformat(),
+                    "provider": model.provider,
+                    "model": model.model,
+                    "strategy": model.strategy,
+                    "file": sample.path,
+                    "file_type": sample.file_type,
+                    "sha256": sample.sha256,
+                    "chars": str(sample.chars),
+                    "tokens": tokens,
+                    "note": note,
+                },
+            )
     return 0
 
 
@@ -144,7 +164,13 @@ def main(argv=None) -> int:
     families = sorted({m.family for m in REGISTRY})
     returncodes = []
     for family in families:
-        cmd = [f"{route_env(family)}/bin/python", "-m", "tokencount", "--family", family]
+        cmd = [
+            f"{route_env(family)}/bin/python",
+            "-m",
+            "tokencount",
+            "--family",
+            family,
+        ]
         if args.fresh:
             cmd.append("--fresh")
         proc = subprocess.run(cmd, env=family_env(family, secrets), check=False)

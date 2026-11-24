@@ -1,9 +1,12 @@
-always use these skills:
+## always use these skills:
 - simple-english
 - ponytail
 
-output style:
+## output style:
 - use headers and subheaders
 - use bullets
 - be brief be bright be gone
-- use the wa tool to prompt the user 
+- use the wa tool to prompt the user
+
+## subagents
+- for subagents always use mistral large medium 

@@ -16,30 +16,39 @@ RETRY_WAIT_SECONDS = 1
 CALL_DELAY_SECONDS = 0.1
 _BASELINE_CACHE = {}
 
+
 class MissingKeyError(Exception):
     def __init__(self, env: str):
         self.env = env
         super().__init__(f"Missing key for {env}")
 
+
 class UnsupportedModelError(Exception):
     pass
+
 
 def _post_json(url: str, *, headers: dict, payload: dict, params: dict = None) -> dict:
     retrying = Retrying(
         stop=stop_after_attempt(3),
         wait=wait_fixed(RETRY_WAIT_SECONDS),
-        retry=retry_if_exception(lambda e: isinstance(e, httpx.HTTPStatusError) and e.response.status_code == 429),
+        retry=retry_if_exception(
+            lambda e: isinstance(e, httpx.HTTPStatusError)
+            and e.response.status_code == 429
+        ),
     )
-    
+
     with httpx.Client(transport=TRANSPORT) as client:
         for attempt in retrying:
             with attempt:
-                response = client.post(url, headers=headers, json=payload, params=params)
+                response = client.post(
+                    url, headers=headers, json=payload, params=params
+                )
                 if response.status_code in (400, 404):
                     raise UnsupportedModelError(response.json())
                 response.raise_for_status()
                 time.sleep(CALL_DELAY_SECONDS)
                 return response.json()
+
 
 def _count_openai_api(model_id: str, text: str, key: str) -> int:
     url = "https://api.openai.com/v1/responses/input_tokens"
@@ -47,6 +56,7 @@ def _count_openai_api(model_id: str, text: str, key: str) -> int:
     payload = {"model": model_id, "input": text}
     response = _post_json(url, headers=headers, payload=payload)
     return response["input_tokens"]
+
 
 def _count_anthropic_api(model_id: str, text: str, key: str) -> int:
     url = "https://api.anthropic.com/v1/messages/count_tokens"
@@ -61,12 +71,14 @@ def _count_anthropic_api(model_id: str, text: str, key: str) -> int:
     response = _post_json(url, headers=headers, payload=payload)
     return response["input_tokens"]
 
+
 def _count_google_api(model_id: str, text: str, key: str) -> int:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:countTokens"
     headers = {}
     payload = {"prompt": {"text": text}}
     response = _post_json(url, headers=headers, payload=payload, params={"key": key})
     return response["totalTokens"]
+
 
 def _count_zai_api(model_id: str, text: str, key: str) -> int:
     url = "https://api.z.ai/api/paas/v4/tokenizer"
@@ -78,6 +90,7 @@ def _count_zai_api(model_id: str, text: str, key: str) -> int:
     response = _post_json(url, headers=headers, payload=payload)
     return response["usage"]["prompt_tokens"]
 
+
 def _count_kimi_api(model_id: str, text: str, key: str) -> int:
     url = "https://api.moonshot.ai/v1/tokenizers/estimate-token-count"
     headers = {"Authorization": f"Bearer {key}"}
@@ -87,6 +100,7 @@ def _count_kimi_api(model_id: str, text: str, key: str) -> int:
     }
     response = _post_json(url, headers=headers, payload=payload)
     return response["data"]["total_tokens"]
+
 
 _COUNTERS = {
     "openai_api": _count_openai_api,
@@ -108,7 +122,11 @@ def baseline_tokens(strategy: str, model_id: str, key: str) -> int:
 
 
 def count_tokens(
-    strategy: str, model_id: str, text: str, key: str | None = None, tokenizer_file: str | None = None
+    strategy: str,
+    model_id: str,
+    text: str,
+    key: str | None = None,
+    tokenizer_file: str | None = None,
 ) -> int:
     if strategy == "hf_local":
         raise ValueError("hf_local is not supported in this task")

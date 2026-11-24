@@ -30,7 +30,9 @@ class Sample:
     text: str
 
 
-def parse_entries(members_path=EU_MEMBERS_FILE, repos_path=REPOS_FILE) -> list[CorpusEntry]:
+def parse_entries(
+    members_path=EU_MEMBERS_FILE, repos_path=REPOS_FILE
+) -> list[CorpusEntry]:
     entries: list[CorpusEntry] = []
     for line in Path(members_path).read_text(encoding="utf-8").splitlines():
         if not line.strip() or line.startswith("#"):
@@ -60,11 +62,18 @@ def load_entries() -> list[CorpusEntry]:
 
 def _make_client() -> httpx.Client:
     # Wikipedia and other sites 403 the default python-httpx user agent.
-    return httpx.Client(timeout=30.0, follow_redirects=True,
-                        headers={"User-Agent": "token-count/0.1 (+https://github.com/jope35/token-count)"})
+    return httpx.Client(
+        timeout=30.0,
+        follow_redirects=True,
+        headers={
+            "User-Agent": "token-count/0.1 (+https://github.com/jope35/token-count)"
+        },
+    )
 
 
-def fetch_corpus(entries: list[CorpusEntry], dest_dir="samples", fresh=False) -> list[Sample]:
+def fetch_corpus(
+    entries: list[CorpusEntry], dest_dir="samples", fresh=False
+) -> list[Sample]:
     client = _make_client()
     samples: list[Sample] = []
     for entry in entries:
@@ -80,6 +89,14 @@ def fetch_corpus(entries: list[CorpusEntry], dest_dir="samples", fresh=False) ->
             part.write_bytes(data)
             os.replace(part, dest)
         text = data.decode("utf-8")
-        samples.append(Sample(str(dest), entry.file_type, entry.name,
-                              hashlib.sha256(data).hexdigest(), len(text), text))
+        samples.append(
+            Sample(
+                str(dest),
+                entry.file_type,
+                entry.name,
+                hashlib.sha256(data).hexdigest(),
+                len(text),
+                text,
+            )
+        )
     return samples
