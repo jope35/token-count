@@ -101,6 +101,10 @@ class TestApiStrategies(CounterTestCase):
             assert request.url.host == "generativelanguage.googleapis.com"
             assert request.url.path.endswith(":countTokens")
             assert request.url.params["key"] == "k"
+            body = json.loads(request.content)
+            assert body == {
+                "contents": [{"role": "user", "parts": [{"text": "abc"}]}]
+            }
             return httpx.Response(200, json={"totalTokens": 9})
 
         use_mock(handler)

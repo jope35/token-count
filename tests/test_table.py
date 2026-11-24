@@ -14,9 +14,10 @@ def make_row(
     sha256="abc",
     tokens="",
     note="",
+    timestamp="2026-11-24T00:00:00+00:00",
 ):
     return {
-        "timestamp": "2026-11-24T00:00:00+00:00",
+        "timestamp": timestamp,
         "provider": "p",
         "model": model,
         "strategy": strategy,
@@ -78,6 +79,44 @@ class TestPivot(unittest.TestCase):
         self.assertEqual(
             file_types, ["text", "python", "javascript", "shell", "rust", "go"]
         )
+
+    def test_only_latest_run_per_file_counts(self):
+        rows = [
+            make_row(
+                file="samples/python/a",
+                sha256="old-sha",
+                tokens="10",
+                timestamp="2026-11-24T00:00:00+00:00",
+            ),
+            make_row(
+                file="samples/python/a",
+                sha256="new-sha",
+                tokens="7",
+                timestamp="2026-11-25T00:00:00+00:00",
+            ),
+            make_row(file="samples/python/b", tokens="5"),
+        ]
+        _, cells = table.pivot(rows, models=["m"], file_types=FILE_TYPES)
+        # 7 + 5, not 10 + 7 + 5: the stale-sha row is replaced, not stacked
+        self.assertEqual(cells["m"]["python"], 12)
+
+    def test_latest_row_wins_even_when_it_is_an_error(self):
+        rows = [
+            make_row(
+                file="samples/python/a",
+                sha256="old-sha",
+                tokens="10",
+                timestamp="2026-11-24T00:00:00+00:00",
+            ),
+            make_row(
+                file="samples/python/a",
+                sha256="new-sha",
+                note="error: boom",
+                timestamp="2026-11-25T00:00:00+00:00",
+            ),
+        ]
+        _, cells = table.pivot(rows, models=["m"], file_types=FILE_TYPES)
+        self.assertEqual(cells["m"]["python"], "error: boom")
 
 
 class TestRenderMarkdown(unittest.TestCase):

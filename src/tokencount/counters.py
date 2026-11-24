@@ -75,7 +75,8 @@ def _count_anthropic_api(model_id: str, text: str, key: str) -> int:
 def _count_google_api(model_id: str, text: str, key: str) -> int:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:countTokens"
     headers = {}
-    payload = {"prompt": {"text": text}}
+    # CountTokensRequest takes `contents`, not a `prompt` field
+    payload = {"contents": [{"role": "user", "parts": [{"text": text}]}]}
     response = _post_json(url, headers=headers, payload=payload, params={"key": key})
     return response["totalTokens"]
 

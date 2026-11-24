@@ -17,6 +17,18 @@ def _note_rank(note: str) -> int:
     return 2
 
 
+def _latest_rows(rows: list) -> list:
+    # results.csv is append-only and chronological: for a given
+    # (model, strategy, file) only the newest row counts, so a rerun against
+    # a re-downloaded corpus replaces the stale-sha rows instead of stacking.
+    latest = {}
+    for row in rows:
+        key = (row["model"], row["strategy"], row["file"])
+        if key not in latest or row["timestamp"] >= latest[key]["timestamp"]:
+            latest[key] = row
+    return list(latest.values())
+
+
 def pivot(rows: list, models: list = None, file_types: list = None) -> tuple:
     if models is None:
         models = [m.model for m in REGISTRY]
@@ -27,7 +39,7 @@ def pivot(rows: list, models: list = None, file_types: list = None) -> tuple:
                 file_types.append(entry.file_type)
     sums = {m: {} for m in models}
     notes = {m: {} for m in models}
-    for row in rows:
+    for row in _latest_rows(rows):
         model, file_type = row["model"], row["file_type"]
         if model not in sums or file_type not in file_types:
             continue
